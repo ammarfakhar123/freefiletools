@@ -68,29 +68,6 @@ export default function ContactPage() {
             via email or WhatsApp, and we will get back to you promptly.
           </p>
 
-          {/* Real-time Status Overview Strip */}
-          <div className={styles.statusOverviewBar}>
-            <div className={styles.statusItem}>
-              <span className={styles.statusLabel}>Live Status</span>
-              <span className={styles.statusValue}>
-                <span className={styles.pulseDot} />
-                <span>Support Channels Active</span>
-              </span>
-            </div>
-            <div className={styles.statusItem}>
-              <span className={styles.statusLabel}>Response Speed</span>
-              <span className={styles.statusValue}>
-                <span>~2 Hours (WhatsApp) &bull; &lt;24h (Email)</span>
-              </span>
-            </div>
-            <div className={styles.statusItem}>
-              <span className={styles.statusLabel}>Operating Hours</span>
-              <span className={styles.statusValue}>
-                <span>Mon &ndash; Sat, 9:00 AM &ndash; 8:00 PM PKT</span>
-              </span>
-            </div>
-          </div>
-
           {/* Contact Channels Grid */}
           <div className={styles.cardsGrid}>
             {/* Card 1: Official Email */}
