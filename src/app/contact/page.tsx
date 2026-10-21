@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import styles from './contact.module.css';
 import { IconShield, IconCheck, IconWhatsApp } from '@/components/icons';
-import { ContactActions, EmailActions } from '@/components/ui/ContactActions';
+import { ContactActions, EmailActions, QuickMessageComposer } from '@/components/ui/ContactActions';
 
 export const metadata: Metadata = {
   title: 'Contact Us | FreeFileTools Support & Inquiries',
@@ -37,16 +37,16 @@ export default function ContactPage() {
   };
 
   return (
-    <div className={styles.contactWrapper}>
+    <div className={styles.pageWrapper}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdContact) }}
       />
       <div className="container">
         {/* Breadcrumb Navigation */}
-        <nav className={styles.breadcrumbs} aria-label="Breadcrumb navigation">
-          <Link href="/">Home</Link>
-          <span style={{ color: 'var(--border-strong)' }}>/</span>
+        <nav className={styles.breadcrumb} aria-label="Breadcrumb navigation">
+          <Link href="/" className={styles.breadcrumbLink}>Home</Link>
+          <span className={styles.breadcrumbSeparator}>/</span>
           <span style={{ color: 'var(--text-primary)' }}>Contact Us</span>
         </nav>
 
@@ -59,10 +59,37 @@ export default function ContactPage() {
 
           <h1 className={styles.pageTitle}>Contact FreeFileTools</h1>
 
+          <p className={styles.effectiveDate}>
+            Effective Date: October 22, 2026 | Version: 1.0 (Initial Release) | Latest Update: None
+          </p>
+
           <p className={styles.pageIntro}>
             Have a question, feedback, or feature suggestion? We are here to help. Reach out directly
             via email or WhatsApp, and we will get back to you promptly.
           </p>
+
+          {/* Real-time Status Overview Strip */}
+          <div className={styles.statusOverviewBar}>
+            <div className={styles.statusItem}>
+              <span className={styles.statusLabel}>Live Status</span>
+              <span className={styles.statusValue}>
+                <span className={styles.pulseDot} />
+                <span>Support Channels Active</span>
+              </span>
+            </div>
+            <div className={styles.statusItem}>
+              <span className={styles.statusLabel}>Response Speed</span>
+              <span className={styles.statusValue}>
+                <span>~2 Hours (WhatsApp) &bull; &lt;24h (Email)</span>
+              </span>
+            </div>
+            <div className={styles.statusItem}>
+              <span className={styles.statusLabel}>Operating Hours</span>
+              <span className={styles.statusValue}>
+                <span>Mon &ndash; Sat, 9:00 AM &ndash; 8:00 PM PKT</span>
+              </span>
+            </div>
+          </div>
 
           {/* Contact Channels Grid */}
           <div className={styles.cardsGrid}>
@@ -81,7 +108,13 @@ export default function ContactPage() {
                 <p className={styles.cardDesc}>
                   For general questions, bug reports, partnership inquiries, or tool requests:
                 </p>
-                <div className={styles.cardValue}>info@freefiletools.site</div>
+                <div className={styles.cardValue}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <span>info@freefiletools.site</span>
+                </div>
               </div>
 
               <EmailActions />
@@ -99,12 +132,20 @@ export default function ContactPage() {
                 <p className={styles.cardDesc}>
                   Direct communication for quick assistance, urgent queries, and feedback:
                 </p>
-                <div className={styles.cardValue}>+92 3302079066</div>
+                <div className={styles.cardValue}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                  <span>+92 3302079066</span>
+                </div>
               </div>
 
               <ContactActions />
             </div>
           </div>
+
+          {/* Interactive Quick Message Composer */}
+          <QuickMessageComposer />
 
           {/* Privacy & File Security Notice */}
           <div className={styles.infoSection}>
@@ -115,8 +156,8 @@ export default function ContactPage() {
               </h2>
             </div>
             <p className={styles.infoSectionText}>
-              All file conversion, background removal, and editing tools on FreeFileTools run 100% locally
-              inside your browser via WebAssembly and Canvas. We never store, log, or transfer your files to any
+              All file conversion, document generation, and image editing utilities on FreeFileTools run 100% locally
+              inside your web browser via WebAssembly and Canvas APIs. We never store, log, or transfer your files to any
               remote server. When contacting support, you never need to share sensitive documents or personal
               files.
             </p>
@@ -124,8 +165,8 @@ export default function ContactPage() {
             <div className={styles.faqItem}>
               <div className={styles.faqQuestion}>How quickly does support respond?</div>
               <div className={styles.faqAnswer}>
-                We typically respond to emails within 24 to 48 business hours. WhatsApp messages are usually
-                answered much faster during business hours.
+                We typically respond to WhatsApp messages within 1 to 2 hours during active business hours. Email inquiries are usually
+                answered within 24 to 48 business hours.
               </div>
             </div>
 

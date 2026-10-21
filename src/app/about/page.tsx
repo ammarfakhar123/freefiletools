@@ -51,9 +51,13 @@ export default function AboutPage() {
             <span>Our Principles</span>
           </div>
 
-          <h1 style={{ fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 800, marginBottom: '1.25rem' }}>
+          <h1 style={{ fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 800, marginBottom: '0.75rem' }}>
             About FreeFileTools
           </h1>
+
+          <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '1.75rem' }}>
+            Effective Date: October 22, 2026 | Version: 1.0 (Initial Release) | Latest Update: None
+          </p>
 
           <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '2.5rem' }}>
             FreeFileTools was founded on a simple conviction: common digital file tasks should be

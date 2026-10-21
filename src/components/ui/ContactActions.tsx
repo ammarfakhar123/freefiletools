@@ -67,7 +67,7 @@ export function ContactActions() {
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
 
-    // If on mobile device, also launch the native phone dialer
+    // If on mobile device, also launch native dialer
     if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
       window.location.href = 'tel:+923302079066';
     }
@@ -108,6 +108,95 @@ export function ContactActions() {
           </>
         )}
       </button>
+    </div>
+  );
+}
+
+export function QuickMessageComposer() {
+  const [topic, setTopic] = useState('General Inquiry');
+  const [message, setMessage] = useState('');
+
+  const TOPICS = [
+    'General Inquiry',
+    'Report an Issue',
+    'Suggest a Tool or Format',
+    'Partnership / Business',
+  ];
+
+  const handleWhatsAppSend = () => {
+    const text = encodeURIComponent(
+      `Hello FreeFileTools Support,\n\nTopic: ${topic}\nMessage: ${message.trim() || 'I would like to inquire about your file tools.'}`
+    );
+    window.open(`https://wa.me/923302079066?text=${text}`, '_blank');
+  };
+
+  const handleEmailSend = () => {
+    const subject = encodeURIComponent(`[${topic}] FreeFileTools Support Inquiry`);
+    const body = encodeURIComponent(
+      `Hello FreeFileTools Support,\n\nTopic: ${topic}\n\n${message.trim() || 'I have a question regarding your tools.'}\n\n`
+    );
+    window.location.href = `mailto:info@freefiletools.site?subject=${subject}&body=${body}`;
+  };
+
+  return (
+    <div className={styles.composerWrapper}>
+      <div className={styles.composerHeader}>
+        <div className={styles.composerIconWrap}>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+        </div>
+        <div>
+          <h3 className={styles.composerTitle}>Send a Quick Message</h3>
+          <p className={styles.composerSubtitle}>
+            Select your inquiry topic and compose a quick message to dispatch instantly via WhatsApp or Email:
+          </p>
+        </div>
+      </div>
+
+      <div className={styles.topicButtonGroup}>
+        {TOPICS.map((t) => (
+          <button
+            key={t}
+            type="button"
+            className={`${styles.topicButton} ${topic === t ? styles.topicActive : ''}`}
+            onClick={() => setTopic(t)}
+          >
+            {t}
+          </button>
+        ))}
+      </div>
+
+      <textarea
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        placeholder="Write your feedback, feature request, or question here (optional)..."
+        className={styles.composerTextarea}
+        rows={3}
+      />
+
+      <div className={styles.composerActions}>
+        <button
+          type="button"
+          onClick={handleWhatsAppSend}
+          className={styles.primaryWhatsAppBtn}
+        >
+          <IconWhatsApp size={18} />
+          <span>Launch on WhatsApp</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={handleEmailSend}
+          className={styles.primaryEmailBtn}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <line x1="22" y1="2" x2="11" y2="13" />
+            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
+          <span>Send via Email</span>
+        </button>
+      </div>
     </div>
   );
 }
