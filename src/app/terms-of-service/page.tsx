@@ -54,7 +54,7 @@ export default function TermsOfServicePage() {
             Terms of Service
           </h1>
           <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '2.5rem' }}>
-            Effective Date: October 20, 2026 | Last Updated: October 20, 2026
+            Effective Date: October 22, 2026 | Version: 1.0 (Initial Release) | Latest Update: None
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', lineHeight: 1.75, color: 'var(--text-secondary)' }}>
@@ -149,10 +149,10 @@ export default function TermsOfServicePage() {
                 8. Contact Information
               </h2>
               <p>
-                For questions regarding these Terms of Service, please reach out via our contact page or email:
+                For questions regarding these Terms of Service, please reach out via email:
               </p>
               <p style={{ marginTop: '0.5rem', fontWeight: 600 }}>
-                Support: https://freefiletools.site/contact/<br />
+                Email: muhammadammarfakhar@gmail.com<br />
                 Domain: freefiletools.site
               </p>
             </section>

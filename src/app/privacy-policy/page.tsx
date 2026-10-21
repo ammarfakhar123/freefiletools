@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
             Privacy Policy
           </h1>
           <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '2.5rem' }}>
-            Effective Date: October 20, 2026 | Last Updated: October 20, 2026
+            Effective Date: October 22, 2026 | Version: 1.0 (Initial Release) | Latest Update: None
           </p>
 
           <div
@@ -94,13 +94,12 @@ export default function PrivacyPolicyPage() {
 
             <section>
               <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.75rem' }}>
-                2. Information Collected via Voluntary Contact
+                2. Information Collected via Voluntary Email Inquiries
               </h2>
               <p>
-                When you choose to communicate with us through our contact form, we receive the details
-                you explicitly submit: your name, email address, WhatsApp telephone number, and the text
-                of your message. This data is delivered directly to our support team exclusively to respond to your inquiry.
-                We do not sell, rent, or distribute contact inquiries to third-party marketing brokers.
+                When you choose to communicate with us via email, we receive the details you explicitly submit:
+                your name, email address, and the text of your message. This data is used exclusively to respond
+                to your inquiry. We do not sell, rent, or distribute contact inquiries to third-party marketing brokers.
               </p>
             </section>
 
@@ -161,7 +160,7 @@ export default function PrivacyPolicyPage() {
                 If you have questions regarding this Privacy Policy or data handling practices, please contact us at:
               </p>
               <p style={{ marginTop: '0.5rem', fontWeight: 600 }}>
-                Support: https://freefiletools.site/contact/<br />
+                Email: muhammadammarfakhar@gmail.com<br />
                 Website: https://freefiletools.site
               </p>
             </section>

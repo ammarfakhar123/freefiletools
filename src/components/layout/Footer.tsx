@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.css';
-import { IconShield, IconCheck } from '@/components/icons';
+import { IconShield, IconCheck, IconWhatsApp } from '@/components/icons';
 
 export function Footer() {
   return (
@@ -49,7 +49,7 @@ export function Footer() {
                 privacy and rapid execution.
               </p>
             </div>
-            <div>
+            <div className={styles.contactButtonsGroup}>
               <a
                 href="mailto:muhammadammarfakhar@gmail.com?subject=Inquiry%20from%20FreeFileTools"
                 className={styles.emailButton}
@@ -60,6 +60,17 @@ export function Footer() {
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
                 <span>Email Us</span>
+              </a>
+
+              <a
+                href="https://wa.me/923302079066?text=Hi%20FreeFileTools%20Team%2C%20I%20have%20an%20inquiry."
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.whatsappButton}
+                aria-label="Chat with Us on WhatsApp"
+              >
+                <IconWhatsApp size={18} />
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>
@@ -148,10 +159,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className={styles.bottomBar}>
           <div>
-            &copy; 2026 FreeFileTools.site. Genuinely free online file tools.
-          </div>
-          <div>
-            Client-side browser processing. Zero server logs.
+            &copy; 2026 FreeFileTools.site. All rights reserved.
           </div>
         </div>
       </div>

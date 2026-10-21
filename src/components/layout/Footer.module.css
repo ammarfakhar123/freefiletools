@@ -126,6 +126,38 @@
   color: #ffffff !important;
 }
 
+.whatsappButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #ffffff !important;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  text-decoration: none !important;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  transition: all var(--transition-fast);
+  margin-top: 0.75rem;
+  width: fit-content;
+}
+
+.whatsappButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+  background: linear-gradient(135deg, #20ba5a 0%, #0e7266 100%);
+  color: #ffffff !important;
+}
+
+.contactButtonsGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
 .bottomBar {
   padding-top: 2rem;
   border-top: 1px solid var(--border-subtle);
