@@ -106,8 +106,8 @@ export default function AboutPage() {
               inside your web browser sandbox.
             </p>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.75, margin: 0 }}>
-              When you use our Image Background Remover, the neural network runs on your local graphics
-              processor. When you vectorize a logo with PNG to SVG, the tracing equations calculate
+              When you convert images with our Bulk Image Converter or scale them with our Image Resizer,
+              the processing runs on your local device. When you vectorize a logo with PNG to SVG, the tracing equations calculate
               in your device memory. When you compile an Image to PDF or convert a Word document,
               not a single byte leaves your machine. Your privacy is protected by mathematics,
               not corporate promises.

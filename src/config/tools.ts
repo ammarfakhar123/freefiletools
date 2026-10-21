@@ -152,7 +152,7 @@ export const TOOLS: ToolDefinition[] = [
     badgeText: 'Multi-Step Bicubic Resampler',
     acceptedFileTypes: ['image/png', 'image/jpeg', 'image/webp', 'image/bmp'],
     acceptedExtensionsDescription: 'PNG, JPG, JPEG, WebP, BMP up to 50MB',
-    relatedSlugs: ['bulk-image-converter', 'image-background-remover', 'png-to-svg'],
+    relatedSlugs: ['bulk-image-converter', 'svg-to-png', 'png-to-svg'],
     howToSteps: [
       {
         step: 1,
@@ -232,7 +232,7 @@ export const TOOLS: ToolDefinition[] = [
     badgeText: 'Batch GPU Engine',
     acceptedFileTypes: ['image/png', 'image/jpeg', 'image/webp', 'image/svg+xml'],
     acceptedExtensionsDescription: 'PNG, JPG, JPEG, WebP, SVG (up to 50 files)',
-    relatedSlugs: ['image-background-remover', 'png-to-svg', 'image-to-pdf'],
+    relatedSlugs: ['image-resizer', 'png-to-svg', 'image-to-pdf'],
     howToSteps: [
       {
         step: 1,
@@ -311,7 +311,7 @@ export const TOOLS: ToolDefinition[] = [
     badgeText: 'Client Vectorizer',
     acceptedFileTypes: ['image/png', 'image/jpeg', 'image/webp'],
     acceptedExtensionsDescription: 'PNG, JPG, JPEG up to 15MB',
-    relatedSlugs: ['svg-to-png', 'bulk-image-converter', 'image-background-remover'],
+    relatedSlugs: ['svg-to-png', 'bulk-image-converter', 'image-resizer'],
     howToSteps: [
       {
         step: 1,
@@ -594,7 +594,7 @@ export const TOOLS: ToolDefinition[] = [
     badgeText: 'Multi-Page PDF Compiler',
     acceptedFileTypes: ['image/png', 'image/jpeg', 'image/webp'],
     acceptedExtensionsDescription: 'JPG, PNG, WebP up to 50 files',
-    relatedSlugs: ['bulk-image-converter', 'image-background-remover', 'pdf-to-word'],
+    relatedSlugs: ['bulk-image-converter', 'image-resizer', 'pdf-to-word'],
     howToSteps: [
       {
         step: 1,
@@ -664,7 +664,7 @@ export const TOOLS: ToolDefinition[] = [
     badgeText: 'Instant PDF Combiner',
     acceptedFileTypes: ['application/pdf'],
     acceptedExtensionsDescription: 'Multiple PDF documents up to 100MB total',
-    relatedSlugs: ['image-to-pdf', 'bulk-image-converter', 'image-background-remover'],
+    relatedSlugs: ['image-to-pdf', 'bulk-image-converter', 'image-resizer'],
     howToSteps: [
       {
         step: 1,

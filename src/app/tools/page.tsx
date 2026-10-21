@@ -7,14 +7,14 @@ import { IconShield } from '@/components/icons';
 export const metadata: Metadata = {
   title: 'All Free Online File Tools: Images, Documents & Vectors',
   description:
-    'Browse all free online file tools. Background remover, bulk image converter to WebP, PNG to SVG, SVG to PNG, PDF to Word, Word to PDF, and Image to PDF. 100% free, unlimited, no signups.',
+    'Browse all free online file tools. Bulk image converter to WebP, Image Resizer, PNG to SVG, SVG to PNG, PDF to Word, Word to PDF, and Image to PDF. 100% free, unlimited, no signups.',
   alternates: {
     canonical: 'https://freefiletools.site/tools/',
   },
 };
 
 export default function ToolsHubPage() {
-  const imageTools = TOOLS.filter((t) => t.category === 'image');
+  const imageTools = TOOLS.filter((t) => t.category === 'image' && t.id !== 'image-background-remover');
   const documentTools = TOOLS.filter((t) => t.category === 'document');
 
   return (

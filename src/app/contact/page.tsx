@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import styles from './contact.module.css';
 import { IconShield, IconCheck, IconWhatsApp } from '@/components/icons';
-import { ContactActions } from '@/components/ui/ContactActions';
+import { ContactActions, EmailActions } from '@/components/ui/ContactActions';
 
 export const metadata: Metadata = {
   title: 'Contact Us | FreeFileTools Support & Inquiries',
@@ -84,17 +84,7 @@ export default function ContactPage() {
                 <div className={styles.cardValue}>info@freefiletools.site</div>
               </div>
 
-              <a
-                href="mailto:info@freefiletools.site?subject=Inquiry%20from%20FreeFileTools"
-                className={styles.actionButton}
-                aria-label="Send Email to info@freefiletools.site"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="22" y1="2" x2="11" y2="13" />
-                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                </svg>
-                <span>Send Email</span>
-              </a>
+              <EmailActions />
             </div>
 
             {/* Card 2: Phone & WhatsApp */}

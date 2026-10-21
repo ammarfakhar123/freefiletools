@@ -70,18 +70,13 @@ export function Footer() {
             <div className={styles.colTitle}>Image Tools</div>
             <ul className={styles.linkList}>
               <li className={styles.linkItem}>
-                <Link href="/tools/image-background-remover/">
-                  Image Background Remover
+                <Link href="/tools/bulk-image-converter/">
+                  Bulk Image Converter (WebP, PNG, JPG)
                 </Link>
               </li>
               <li className={styles.linkItem}>
                 <Link href="/tools/image-resizer/">
                   Image Resizer (Crop & Scale)
-                </Link>
-              </li>
-              <li className={styles.linkItem}>
-                <Link href="/tools/bulk-image-converter/">
-                  Bulk Image Converter (WebP, PNG, JPG)
                 </Link>
               </li>
               <li className={styles.linkItem}>

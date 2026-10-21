@@ -1,12 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import type { Metadata } from 'next';
 import styles from './page.module.css';
 import { TOOLS } from '@/config/tools';
 import { GsapAnimations } from '@/components/ui/GsapAnimations';
+import { HomeBulkBanner } from '@/components/home/HomeBulkBanner';
 import {
-  IconBgRemover,
   IconPngSvg,
   IconSvgPng,
   IconPdfWord,
@@ -15,22 +14,10 @@ import {
   IconShield,
 } from '@/components/icons';
 
-const ImageBackgroundRemover = dynamic(
-  () => import('@/components/tools/ImageBackgroundRemover').then((m) => m.ImageBackgroundRemover),
-  {
-    ssr: false,
-    loading: () => (
-      <div style={{ textAlign: 'center', padding: '2rem' }}>
-        <div className="skeleton" style={{ width: '100%', height: '140px', borderRadius: '4px' }} />
-      </div>
-    ),
-  }
-);
-
 export const metadata: Metadata = {
   title: 'Free Online File Tools: 100% Free, Unlimited, No Signup',
   description:
-    'Free online file tools for images and documents. Background remover, bulk image converter to WebP, PNG to SVG, SVG to PNG, PDF to Word, Word to PDF, and Image to PDF. 100% free, runs in your browser.',
+    'Free online file tools for images and documents. Bulk image converter to WebP, Image Resizer, PNG to SVG, SVG to PNG, PDF to Word, Word to PDF, and Image to PDF. 100% free, runs in your browser.',
   alternates: {
     canonical: 'https://freefiletools.site',
   },
@@ -59,7 +46,7 @@ const homeFaqs = [
   },
   {
     q: 'What image tools are currently available on FreeFileTools?',
-    a: 'Our image suite includes an instant Image Background Remover, a Bulk Image Converter (WebP, PNG, JPG with ZIP export), a PNG to SVG Vector Converter, an SVG to PNG Renderer, and an Image to PDF compiler.',
+    a: 'Our image suite includes a Bulk Image Converter (WebP, PNG, JPG, AVIF with ZIP export), an Image Resizer (Crop & Scale), a PNG to SVG Vector Converter, an SVG to PNG Renderer, and an Image to PDF compiler.',
   },
   {
     q: 'What document tools are currently available?',
@@ -70,8 +57,8 @@ const homeFaqs = [
     a: 'Yes. FreeFileTools is built mobile-first and is compatible with modern browsers on iOS, Android, macOS, Windows, and Linux.',
   },
   {
-    q: 'How fast is background removal and conversion?',
-    a: 'Our tools execute directly in local browser memory in milliseconds (<50ms for background removal and under 1 second for document conversions).',
+    q: 'How fast is image conversion and processing?',
+    a: 'Our tools execute directly in local browser memory in milliseconds (<50ms for image processing and under 1 second for document conversions).',
   },
   {
     q: 'Can I convert multiple images to WebP at once?',
@@ -123,7 +110,7 @@ export default function HomePage() {
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               <Link href="/tools/" className="button">
-                Browse All 7 Tools
+                Browse All 8 Tools
               </Link>
               <Link href="/about/" className="button secondary">
                 How It Works
@@ -131,13 +118,9 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Real working instant tool in the hero */}
+          {/* Bulk Image Converter Hero Banner */}
           <div className={`${styles.heroToolContainer} gsap-hero-tool`}>
-            <div className={styles.heroToolHeader}>
-              <span className={styles.heroToolTitle}>Try It Now: Instant Background Remover</span>
-              <span className={styles.badgeLive}>Instant 40ms</span>
-            </div>
-            <ImageBackgroundRemover />
+            <HomeBulkBanner />
           </div>
         </div>
       </section>
@@ -146,7 +129,7 @@ export default function HomePage() {
       <section className={styles.freeForeverBand}>
         <div className={`container ${styles.bandGrid}`}>
           <div className={`${styles.statItem} gsap-stat-item`}>
-            <div className={styles.statNumber}>7</div>
+            <div className={styles.statNumber}>8</div>
             <div className={styles.statLabel}>Free Tools Available</div>
           </div>
           <div className={`${styles.statItem} gsap-stat-item`}>
@@ -180,7 +163,7 @@ export default function HomePage() {
             <div className={styles.categoryHeader}>
               <h3 className={styles.categoryTitle}>Image Tools</h3>
               <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                5 Dedicated Visual Utilities
+                4 Dedicated Visual Utilities
               </span>
             </div>
 
@@ -226,22 +209,6 @@ export default function HomePage() {
                   <div className={styles.cardAction}>Batch Convert Images</div>
                 </Link>
 
-                <Link href="/tools/image-background-remover/" className={`${styles.toolCardSub} gsap-tool-card`}>
-                  <div>
-                    <div className={styles.cardTop}>
-                      <div className={styles.cardIcon}>
-                        <IconBgRemover size={24} />
-                      </div>
-                      <span className={styles.cardBadge}>Logo &amp; Graphic</span>
-                    </div>
-                    <h4 className={styles.cardTitle}>Image Background Remover</h4>
-                    <p className={styles.cardDesc}>
-                      Remove solid and logo backgrounds with pixel-for-pixel accuracy and pure transparent PNG export.
-                    </p>
-                  </div>
-                  <div className={styles.cardAction}>Remove Background</div>
-                </Link>
-
                 <Link href="/tools/png-to-svg/" className={`${styles.toolCardSub} gsap-tool-card`}>
                   <div>
                     <div className={styles.cardTop}>
@@ -256,6 +223,22 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div className={styles.cardAction}>Vectorize Image</div>
+                </Link>
+
+                <Link href="/tools/svg-to-png/" className={`${styles.toolCardSub} gsap-tool-card`}>
+                  <div>
+                    <div className={styles.cardTop}>
+                      <div className={styles.cardIcon}>
+                        <IconSvgPng size={24} />
+                      </div>
+                      <span className={styles.cardBadge}>Raster Engine</span>
+                    </div>
+                    <h4 className={styles.cardTitle}>SVG to PNG</h4>
+                    <p className={styles.cardDesc}>
+                      Render vector SVG graphics into crisp transparent PNG images with custom scaling and solid backgrounds.
+                    </p>
+                  </div>
+                  <div className={styles.cardAction}>Render PNG</div>
                 </Link>
               </div>
             </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './BulkImageConverter.module.css';
 import { DropZone } from '@/components/ui/DropZone';
 import { IconDownload, IconRefresh, IconShield, IconTrash } from '@/components/icons';
@@ -143,6 +143,17 @@ export function BulkImageConverter() {
       }
     }
   };
+
+  // Process files passed from the home banner
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).__PENDING_BULK_FILES__) {
+      const pending: File[] = (window as any).__PENDING_BULK_FILES__;
+      delete (window as any).__PENDING_BULK_FILES__;
+      if (pending && pending.length > 0) {
+        handleFilesSelected(pending);
+      }
+    }
+  }, []);
 
   const reprocessAll = async (newFormat: TargetFormat, newQuality: number) => {
     setTargetFormat(newFormat);

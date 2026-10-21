@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Header.module.css';
 import {
-  IconBgRemover,
   IconPngSvg,
   IconSvgPng,
   IconPdfWord,
@@ -131,23 +130,6 @@ export function Header() {
                         </div>
                       </div>
                       {isToolActive('bulk-image-converter') && <IconCheck size={16} />}
-                    </Link>
-
-                    <Link
-                      href="/tools/image-background-remover/"
-                      className={`${styles.dropdownItem} ${isToolActive('image-background-remover') ? styles.activeItem : ''}`}
-                      onClick={() => setDropdownOpen(false)}
-                    >
-                      <div className={styles.itemLeft}>
-                        <div className={styles.itemIconWrap}>
-                          <IconBgRemover size={20} />
-                        </div>
-                        <div className={styles.itemText}>
-                          <span className={styles.itemTitle}>Background Remover</span>
-                          <span className={styles.itemSubtitle}>Logo &amp; graphic cutout</span>
-                        </div>
-                      </div>
-                      {isToolActive('image-background-remover') && <IconCheck size={16} />}
                     </Link>
 
                     <Link
@@ -347,13 +329,6 @@ export function Header() {
               className={isToolActive('bulk-image-converter') ? styles.mobileActive : ''}
             >
               Bulk Image Converter (All Formats)
-            </Link>
-            <Link
-              href="/tools/image-background-remover/"
-              onClick={() => setMobileOpen(false)}
-              className={isToolActive('image-background-remover') ? styles.mobileActive : ''}
-            >
-              Image Background Remover
             </Link>
             <Link
               href="/tools/png-to-svg/"

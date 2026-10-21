@@ -116,6 +116,20 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/tools/image-background-remover',
+        destination: '/tools/bulk-image-converter',
+        permanent: true,
+      },
+      {
+        source: '/tools/image-background-remover/:path*',
+        destination: '/tools/bulk-image-converter',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

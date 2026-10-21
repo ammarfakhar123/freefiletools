@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const toolPages: MetadataRoute.Sitemap = TOOLS.map((tool) => ({
+  const toolPages: MetadataRoute.Sitemap = TOOLS.filter((tool) => tool.slug !== 'image-background-remover').map((tool) => ({
     url: `${baseUrl}/tools/${tool.slug}/`,
     lastModified,
     changeFrequency: 'weekly',
