@@ -100,6 +100,23 @@ export function Header() {
                     <div className={styles.dropdownGroupTitle}>Image Tools</div>
 
                     <Link
+                      href="/tools/image-resizer/"
+                      className={`${styles.dropdownItem} ${isToolActive('image-resizer') ? styles.activeItem : ''}`}
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      <div className={styles.itemLeft}>
+                        <div className={styles.itemIconWrap}>
+                          <IconSvgPng size={20} />
+                        </div>
+                        <div className={styles.itemText}>
+                          <span className={styles.itemTitle}>Image Resizer</span>
+                          <span className={styles.itemSubtitle}>High-DPI crop &amp; scale</span>
+                        </div>
+                      </div>
+                      {isToolActive('image-resizer') && <IconCheck size={16} />}
+                    </Link>
+
+                    <Link
                       href="/tools/bulk-image-converter/"
                       className={`${styles.dropdownItem} ${isToolActive('bulk-image-converter') ? styles.activeItem : ''}`}
                       onClick={() => setDropdownOpen(false)}
@@ -127,27 +144,10 @@ export function Header() {
                         </div>
                         <div className={styles.itemText}>
                           <span className={styles.itemTitle}>Background Remover</span>
-                          <span className={styles.itemSubtitle}>AI &amp; Smart Keyer</span>
+                          <span className={styles.itemSubtitle}>Logo &amp; graphic cutout</span>
                         </div>
                       </div>
                       {isToolActive('image-background-remover') && <IconCheck size={16} />}
-                    </Link>
-
-                    <Link
-                      href="/tools/image-resizer/"
-                      className={`${styles.dropdownItem} ${isToolActive('image-resizer') ? styles.activeItem : ''}`}
-                      onClick={() => setDropdownOpen(false)}
-                    >
-                      <div className={styles.itemLeft}>
-                        <div className={styles.itemIconWrap}>
-                          <IconSvgPng size={20} />
-                        </div>
-                        <div className={styles.itemText}>
-                          <span className={styles.itemTitle}>Image Resizer</span>
-                          <span className={styles.itemSubtitle}>High-DPI crop &amp; scale</span>
-                        </div>
-                      </div>
-                      {isToolActive('image-resizer') && <IconCheck size={16} />}
                     </Link>
 
                     <Link
@@ -269,10 +269,10 @@ export function Header() {
             </Link>
 
             <Link
-              href="/tools/image-background-remover/"
-              className={`${styles.navLink} ${isToolActive('image-background-remover') ? styles.active : ''}`}
+              href="/tools/image-resizer/"
+              className={`${styles.navLink} ${isToolActive('image-resizer') ? styles.active : ''}`}
             >
-              BG Remover
+              Image Resizer
             </Link>
 
             <Link
@@ -335,6 +335,13 @@ export function Header() {
               Home
             </Link>
             <Link
+              href="/tools/image-resizer/"
+              onClick={() => setMobileOpen(false)}
+              className={isToolActive('image-resizer') ? styles.mobileActive : ''}
+            >
+              Image Resizer (Crop & Scale)
+            </Link>
+            <Link
               href="/tools/bulk-image-converter/"
               onClick={() => setMobileOpen(false)}
               className={isToolActive('bulk-image-converter') ? styles.mobileActive : ''}
@@ -347,13 +354,6 @@ export function Header() {
               className={isToolActive('image-background-remover') ? styles.mobileActive : ''}
             >
               Image Background Remover
-            </Link>
-            <Link
-              href="/tools/image-resizer/"
-              onClick={() => setMobileOpen(false)}
-              className={isToolActive('image-resizer') ? styles.mobileActive : ''}
-            >
-              Image Resizer (Crop & Scale)
             </Link>
             <Link
               href="/tools/png-to-svg/"

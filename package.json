@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mediapipe/selfie_segmentation": "^0.1.1675465747",
     "@types/jszip": "^3.4.0",
     "docx": "^9.1.0",
     "docx-preview": "^0.4.1",

@@ -88,6 +88,9 @@ export function SvgToPng() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+
     if (bgType === 'solid') {
       ctx.fillStyle = bgColor;
       ctx.fillRect(0, 0, targetW, targetH);

@@ -38,7 +38,7 @@ const FORMAT_OPTIONS: { id: TargetFormat; label: string; ext: string; desc: stri
 export function BulkImageConverter() {
   const [items, setItems] = useState<ConvertedItem[]>([]);
   const [targetFormat, setTargetFormat] = useState<TargetFormat>('image/webp');
-  const [quality, setQuality] = useState<number>(0.92);
+  const [quality, setQuality] = useState<number>(0.98); // High-Definition preservation default (98%)
   const [isZipping, setIsZipping] = useState(false);
 
   const getFormatExtension = (format: TargetFormat) => {
@@ -59,8 +59,11 @@ export function BulkImageConverter() {
         const canvas = document.createElement('canvas');
         canvas.width = img.naturalWidth || img.width;
         canvas.height = img.naturalHeight || img.height;
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
         if (!ctx) return reject(new Error('Canvas error'));
+
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
 
         if (format === 'image/jpeg' || format === 'image/bmp') {
           ctx.fillStyle = '#FFFFFF';
@@ -250,9 +253,9 @@ export function BulkImageConverter() {
           </div>
           <input
             type="range"
-            min="0.5"
+            min="0.6"
             max="1.0"
-            step="0.05"
+            step="0.01"
             value={quality}
             onChange={(e) => reprocessAll(targetFormat, Number(e.target.value))}
             style={{ width: '130px', accentColor: 'var(--brand-blue)', cursor: 'pointer' }}

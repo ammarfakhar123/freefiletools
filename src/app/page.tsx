@@ -185,26 +185,26 @@ export default function HomePage() {
             </div>
 
             <div className={styles.asymmetricGrid}>
-              {/* Featured Left Card */}
+              {/* Featured Left Card: Image Resizer */}
               <Link
-                href="/tools/image-background-remover/"
+                href="/tools/image-resizer/"
                 className={`${styles.toolCardFeatured} gsap-tool-card`}
               >
                 <div>
                   <div className={styles.cardTop}>
                     <div className={styles.cardIcon}>
-                      <IconBgRemover size={26} />
+                      <IconSvgPng size={26} />
                     </div>
-                    <span className={styles.cardBadge}>Instant 40ms</span>
+                    <span className={styles.cardBadge}>High-DPI Bicubic</span>
                   </div>
-                  <h4 className={styles.cardTitle}>Image Background Remover</h4>
+                  <h4 className={styles.cardTitle}>Image Resizer (Crop &amp; Scale)</h4>
                   <p className={styles.cardDesc}>
-                    Instantly isolate foreground subjects and remove backgrounds in milliseconds.
-                    Exports full-resolution transparent 32-bit PNG cutouts with zero watermarks.
+                    Resize, scale, and crop photos by exact pixel dimensions, percentage, or social media presets
+                    with zero quality loss and anti-aliased stepped smoothing.
                   </p>
                 </div>
                 <div className={styles.cardAction}>
-                  Launch Background Remover
+                  Launch Image Resizer
                 </div>
               </Link>
 
@@ -226,20 +226,20 @@ export default function HomePage() {
                   <div className={styles.cardAction}>Batch Convert Images</div>
                 </Link>
 
-                <Link href="/tools/image-resizer/" className={`${styles.toolCardSub} gsap-tool-card`}>
+                <Link href="/tools/image-background-remover/" className={`${styles.toolCardSub} gsap-tool-card`}>
                   <div>
                     <div className={styles.cardTop}>
                       <div className={styles.cardIcon}>
-                        <IconSvgPng size={24} />
+                        <IconBgRemover size={24} />
                       </div>
-                      <span className={styles.cardBadge}>High-DPI Scale</span>
+                      <span className={styles.cardBadge}>Logo &amp; Graphic</span>
                     </div>
-                    <h4 className={styles.cardTitle}>Image Resizer (Crop &amp; Scale)</h4>
+                    <h4 className={styles.cardTitle}>Image Background Remover</h4>
                     <p className={styles.cardDesc}>
-                      Resize photos by exact pixel dimensions, percentage, or social media presets with zero quality loss.
+                      Remove solid and logo backgrounds with pixel-for-pixel accuracy and pure transparent PNG export.
                     </p>
                   </div>
-                  <div className={styles.cardAction}>Resize Image</div>
+                  <div className={styles.cardAction}>Remove Background</div>
                 </Link>
 
                 <Link href="/tools/png-to-svg/" className={`${styles.toolCardSub} gsap-tool-card`}>

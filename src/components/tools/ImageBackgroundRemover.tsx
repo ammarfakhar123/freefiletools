@@ -20,9 +20,9 @@ export function ImageBackgroundRemover() {
   const [width, setWidth] = useState<number>(0);
   const [height, setHeight] = useState<number>(0);
 
-  // Background removal parameters (runs smoothly under the hood)
+  // Background removal parameters: sensitivity defaults to 0 as requested
+  const [sensitivity, setSensitivity] = useState<number>(0);
   const [sampleColor, setSampleColor] = useState<RGBColor>({ r: 255, g: 255, b: 255 });
-  const [intensity, setIntensity] = useState<number>(18);
 
   const sourceImgRef = useRef<HTMLImageElement | null>(null);
   const previewImgRef = useRef<HTMLImageElement | null>(null);
@@ -35,6 +35,9 @@ export function ImageBackgroundRemover() {
     target: RGBColor,
     maxDistance: number
   ) => {
+    if (maxDistance === 0) {
+      return r === target.r && g === target.g && b === target.b;
+    }
     const dr = r - target.r;
     const dg = g - target.g;
     const db = b - target.b;
@@ -42,8 +45,9 @@ export function ImageBackgroundRemover() {
     return dist <= maxDistance;
   };
 
-  // Pure pixel-for-pixel transparent background remover:
-  // Subject pixels remain 100% untouched.
+  // Pure HD Pixel-Exact Background Eraser:
+  // Preserves 100% full original resolution without downsampling.
+  // When sensitivity is 0, zero subject pixels are ever touched.
   const executeCleanRemoval = useCallback(
     (
       img: HTMLImageElement,
@@ -60,7 +64,10 @@ export function ImageBackgroundRemover() {
       const ctx = canvas.getContext('2d', { willReadFrequently: true });
       if (!ctx) return;
 
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
       ctx.drawImage(img, 0, 0);
+
       const imgData = ctx.getImageData(0, 0, w, h);
       const data = imgData.data;
       const totalPixels = w * h;
@@ -69,7 +76,7 @@ export function ImageBackgroundRemover() {
       const isBgPixel = new Uint8Array(totalPixels);
 
       // Border-connected flood fill (BFS):
-      // Starts from the image perimeter and preserves all interior subject pixels
+      // Starts from the perimeter of the image and preserves all interior subject pixels
       const queue = new Int32Array(totalPixels);
       let head = 0;
       let tail = 0;
@@ -112,7 +119,7 @@ export function ImageBackgroundRemover() {
         }
       }
 
-      // 4-way BFS expansion
+      // 4-way BFS expansion across connected background
       while (head < tail) {
         const curr = queue[head++];
         const cx = curr % w;
@@ -187,8 +194,8 @@ export function ImageBackgroundRemover() {
 
   useEffect(() => {
     if (!sourceImgRef.current) return;
-    executeCleanRemoval(sourceImgRef.current, sampleColor, intensity);
-  }, [sampleColor, intensity, executeCleanRemoval]);
+    executeCleanRemoval(sourceImgRef.current, sampleColor, sensitivity);
+  }, [sampleColor, sensitivity, executeCleanRemoval]);
 
   // Handle image upload
   const handleFilesSelected = (files: File[]) => {
@@ -218,12 +225,12 @@ export function ImageBackgroundRemover() {
       setWidth(w);
       setHeight(h);
       setSampleColor(autoCol);
-      setIntensity(18);
+      setSensitivity(0); // Sensitivity defaults to 0 as requested
       setFilename(file.name.replace(/\.[^/.]+$/, ''));
       setOriginalUrl(url);
       setStatus('ready');
 
-      executeCleanRemoval(img, autoCol, 18);
+      executeCleanRemoval(img, autoCol, 0);
     };
 
     img.src = url;
@@ -256,7 +263,7 @@ export function ImageBackgroundRemover() {
     }
   };
 
-  // Download lossless transparent PNG
+  // Download lossless transparent PNG in HD
   const handleDownload = () => {
     if (!processedUrl) return;
     const link = document.createElement('a');
@@ -277,6 +284,7 @@ export function ImageBackgroundRemover() {
     setProcessedUrl('');
     setWidth(0);
     setHeight(0);
+    setSensitivity(0);
   };
 
   return (
@@ -285,7 +293,7 @@ export function ImageBackgroundRemover() {
         <DropZone
           onFilesSelected={handleFilesSelected}
           acceptedFileTypes={['image/png', 'image/jpeg', 'image/webp', 'image/bmp']}
-          acceptedDescription="Drop your photo or graphic to make its background transparent"
+          acceptedDescription="Drop your logo or graphic to make its background transparent in HD"
           maxSizeMB={50}
           label="Select or drop image to remove background"
         />
@@ -299,32 +307,32 @@ export function ImageBackgroundRemover() {
               <img
                 ref={previewImgRef}
                 src={processedUrl}
-                alt="Transparent Background Output"
+                alt="HD Transparent Background Output"
                 className={styles.previewImg}
                 onClick={handlePreviewClick}
                 title="Click anywhere on the background to make it transparent"
               />
             ) : (
               <div style={{ height: '320px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Processing...</span>
+                <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Processing HD image...</span>
               </div>
             )}
           </div>
 
-          {/* Simple Clean Adjustment Slider */}
+          {/* Simple Clean Adjustment Slider: Starts at 0 */}
           <div className={styles.subtleSliderBar}>
             <span className={styles.sliderLabel}>Clean Sensitivity:</span>
             <input
               type="range"
-              min="5"
-              max="60"
-              value={intensity}
-              onChange={(e) => setIntensity(Number(e.target.value))}
+              min="0"
+              max="50"
+              value={sensitivity}
+              onChange={(e) => setSensitivity(Number(e.target.value))}
               className={styles.sliderInput}
               aria-label="Clean Sensitivity"
             />
             <span style={{ fontSize: '0.85rem', fontWeight: 600, minWidth: '35px', textAlign: 'right' }}>
-              {intensity}%
+              {sensitivity}%
             </span>
           </div>
 
@@ -335,10 +343,10 @@ export function ImageBackgroundRemover() {
               onClick={handleDownload}
               className={styles.downloadButton}
               disabled={!processedUrl}
-              aria-label="Download Transparent PNG"
+              aria-label="Download HD Transparent PNG"
             >
               <IconDownload size={20} />
-              <span>Download Transparent PNG</span>
+              <span>Download Transparent PNG (HD)</span>
             </button>
 
             <button
@@ -354,7 +362,7 @@ export function ImageBackgroundRemover() {
 
           <div className={styles.privacyNote}>
             <IconShield size={16} />
-            <span>100% Free &bull; Original image quality preserved &bull; Processed privately in your browser</span>
+            <span>HD Original Quality &bull; Pixel-exact logo preservation &bull; 100% private in-browser processing</span>
           </div>
         </div>
       )}
