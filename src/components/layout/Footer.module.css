@@ -102,9 +102,6 @@
 }
 
 .emailContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
   margin-top: 0.5rem;
 }
 
@@ -130,11 +127,6 @@
   box-shadow: 0 6px 18px rgba(0, 112, 243, 0.35);
   background: linear-gradient(135deg, #0060d0 0%, #004494 100%);
   color: #ffffff !important;
-}
-
-.emailSubtext {
-  font-size: 0.8rem;
-  color: var(--text-muted);
 }
 
 .bottomBar {

@@ -62,7 +62,6 @@ export function Footer() {
                 </svg>
                 <span>info@freefiletools.site</span>
               </a>
-              <span className={styles.emailSubtext}>Direct email support • We reply promptly</span>
             </div>
           </div>
 
@@ -138,13 +137,13 @@ export function Footer() {
                 <Link href="/about/">About FreeFileTools</Link>
               </li>
               <li className={styles.linkItem}>
+                <Link href="/contact/">Contact Us</Link>
+              </li>
+              <li className={styles.linkItem}>
                 <Link href="/privacy-policy/">Privacy Policy</Link>
               </li>
               <li className={styles.linkItem}>
                 <Link href="/terms-of-service/">Terms of Service</Link>
-              </li>
-              <li className={styles.linkItem} style={{ marginTop: '0.5rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-                Contact: <a href="mailto:info@freefiletools.site" style={{ color: 'var(--brand-blue)', fontWeight: 600 }}>info@freefiletools.site</a>
               </li>
             </ul>
           </div>
