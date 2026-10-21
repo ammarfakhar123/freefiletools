@@ -63,6 +63,7 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/_next/static') ||
     pathname.startsWith('/_next/image') ||
     pathname.startsWith('/brand/') ||
+    pathname.startsWith('/mediapipe/') ||
     pathname === '/favicon.ico' ||
     pathname === '/robots.txt' ||
     pathname === '/sitemap.xml' ||

@@ -160,7 +160,7 @@ export default function PrivacyPolicyPage() {
                 If you have questions regarding this Privacy Policy or data handling practices, please contact us at:
               </p>
               <p style={{ marginTop: '0.5rem', fontWeight: 600 }}>
-                Email: muhammadammarfakhar@gmail.com<br />
+                Email: info@freefiletools.site<br />
                 Website: https://freefiletools.site
               </p>
             </section>

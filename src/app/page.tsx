@@ -180,7 +180,7 @@ export default function HomePage() {
             <div className={styles.categoryHeader}>
               <h3 className={styles.categoryTitle}>Image Tools</h3>
               <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                4 Dedicated Visual Utilities
+                5 Dedicated Visual Utilities
               </span>
             </div>
 
@@ -224,6 +224,22 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div className={styles.cardAction}>Batch Convert Images</div>
+                </Link>
+
+                <Link href="/tools/image-resizer/" className={`${styles.toolCardSub} gsap-tool-card`}>
+                  <div>
+                    <div className={styles.cardTop}>
+                      <div className={styles.cardIcon}>
+                        <IconSvgPng size={24} />
+                      </div>
+                      <span className={styles.cardBadge}>High-DPI Scale</span>
+                    </div>
+                    <h4 className={styles.cardTitle}>Image Resizer (Crop &amp; Scale)</h4>
+                    <p className={styles.cardDesc}>
+                      Resize photos by exact pixel dimensions, percentage, or social media presets with zero quality loss.
+                    </p>
+                  </div>
+                  <div className={styles.cardAction}>Resize Image</div>
                 </Link>
 
                 <Link href="/tools/png-to-svg/" className={`${styles.toolCardSub} gsap-tool-card`}>

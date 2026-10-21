@@ -1,4 +1,5 @@
 import { articleImageBackgroundRemover } from './image-background-remover';
+import { articleImageResizer } from './image-resizer';
 import { articlePngToSvg } from './png-to-svg';
 import { articleSvgToPng } from './svg-to-png';
 import { articlePdfToWord } from './pdf-to-word';
@@ -9,6 +10,7 @@ import { articleMergePdf } from './merge-pdf';
 
 export const TOOL_ARTICLES: Record<string, string> = {
   'image-background-remover': articleImageBackgroundRemover,
+  'image-resizer': articleImageResizer,
   'bulk-image-converter': articleBulkImageConverter,
   'png-to-svg': articlePngToSvg,
   'svg-to-png': articleSvgToPng,

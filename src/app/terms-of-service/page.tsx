@@ -152,7 +152,7 @@ export default function TermsOfServicePage() {
                 For questions regarding these Terms of Service, please reach out via email:
               </p>
               <p style={{ marginTop: '0.5rem', fontWeight: 600 }}>
-                Email: muhammadammarfakhar@gmail.com<br />
+                Email: info@freefiletools.site<br />
                 Domain: freefiletools.site
               </p>
             </section>

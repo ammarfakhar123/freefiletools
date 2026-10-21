@@ -28,6 +28,10 @@ const ImageBackgroundRemover = dynamic(
   () => import('@/components/tools/ImageBackgroundRemover').then((m) => m.ImageBackgroundRemover),
   { ssr: false, loading: () => <ToolSkeleton /> }
 );
+const ImageResizer = dynamic(
+  () => import('@/components/tools/ImageResizer').then((m) => m.ImageResizer),
+  { ssr: false, loading: () => <ToolSkeleton /> }
+);
 const BulkImageConverter = dynamic(
   () => import('@/components/tools/BulkImageConverter').then((m) => m.BulkImageConverter),
   { ssr: false, loading: () => <ToolSkeleton /> }
@@ -116,6 +120,8 @@ export default function ToolPage({ params }: PageProps) {
     switch (tool.slug) {
       case 'image-background-remover':
         return <ImageBackgroundRemover />;
+      case 'image-resizer':
+        return <ImageResizer />;
       case 'bulk-image-converter':
         return <BulkImageConverter />;
       case 'png-to-svg':

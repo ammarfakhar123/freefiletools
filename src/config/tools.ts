@@ -132,6 +132,87 @@ export const TOOLS: ToolDefinition[] = [
     ]
   },
   {
+    id: 'image-resizer',
+    slug: 'image-resizer',
+    title: 'Free Image Resizer Online (Crop, Scale & Dimensions)',
+    shortTitle: 'Image Resizer',
+    category: 'image',
+    metaDescription: 'Free image resizer online. Resize, scale, and crop photos by exact pixel dimensions, percentage, or social media presets with zero quality loss.',
+    heroSubheading: 'Quickly resize photos and graphics in your browser with multi-step bicubic resampling. 100% free, keep aspect ratio, social presets, zero watermarks.',
+    primaryKeyword: 'free image resizer online',
+    secondaryKeywords: [
+      'resize image online free',
+      'scale image without losing quality',
+      'photo dimensions changer',
+      'resize image to 1080x1080',
+      'passport photo resizer online',
+      'crop and resize image free',
+      'client side photo resizer'
+    ],
+    badgeText: 'Multi-Step Bicubic Resampler',
+    acceptedFileTypes: ['image/png', 'image/jpeg', 'image/webp', 'image/bmp'],
+    acceptedExtensionsDescription: 'PNG, JPG, JPEG, WebP, BMP up to 50MB',
+    relatedSlugs: ['bulk-image-converter', 'image-background-remover', 'png-to-svg'],
+    howToSteps: [
+      {
+        step: 1,
+        title: 'Select or drop your photo',
+        text: 'Choose any image file from your device to load into the resizer.'
+      },
+      {
+        step: 2,
+        title: 'Choose dimensions or preset',
+        text: 'Type target width and height in pixels, pick a percentage scale, or choose from social media presets.'
+      },
+      {
+        step: 3,
+        title: 'Set fit behavior and format',
+        text: 'Choose exact scale, contain with padding, or center crop, and select your preferred output format.'
+      },
+      {
+        step: 4,
+        title: 'Download crisp resized image',
+        text: 'Click Download to instantly save your resized image rendered at maximum bicubic sharpness.'
+      }
+    ],
+    features: [
+      {
+        title: 'Stepped High-DPI Resampling',
+        text: 'Uses iterative stepped downsampling so resizing large images never causes jagged lines, aliasing, or broken pixels.'
+      },
+      {
+        title: 'Aspect Ratio Lock',
+        text: 'Toggle the proportional lock so changing width automatically recalculates height, preventing image distortion.'
+      },
+      {
+        title: 'One-Click Social Media Presets',
+        text: 'Quickly scale for Instagram, YouTube thumbnails, Twitter/X banners, Facebook covers, or Passport photo standards.'
+      },
+      {
+        title: '100% Client-Side Privacy',
+        text: 'Your photos are processed entirely inside browser Canvas memory. Nothing is ever uploaded to external servers.'
+      }
+    ],
+    faq: [
+      {
+        question: 'Will resizing reduce the sharpness of my image?',
+        answer: 'No. FreeFileTools uses stepped downsampling algorithms with high-quality bicubic smoothing to preserve sharp text, edges, and details.'
+      },
+      {
+        question: 'Can I resize photos for Instagram or YouTube?',
+        answer: 'Yes. Use the Social & Standard Presets tab to select Instagram 1080x1080, YouTube 1280x720, or other standard sizes with one click.'
+      },
+      {
+        question: 'Is there a limit on image file size or quantity?',
+        answer: 'You can resize photos up to 50MB each, completely free without daily limits, subscriptions, or watermarks.'
+      },
+      {
+        question: 'Does FreeFileTools store copies of my photos?',
+        answer: 'Never. Resizing happens strictly in your local device browser memory and is discarded the moment you close the tab.'
+      }
+    ]
+  },
+  {
     id: 'bulk-image-converter',
     slug: 'bulk-image-converter',
     title: 'Free Bulk Image Converter to WebP, PNG, JPG Online',

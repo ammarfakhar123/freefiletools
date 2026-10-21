@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.css';
-import { IconShield, IconCheck, IconWhatsApp } from '@/components/icons';
+import { IconShield, IconCheck } from '@/components/icons';
 
 export function Footer() {
   return (
@@ -33,7 +33,7 @@ export function Footer() {
 
         {/* Footer Navigation Columns */}
         <div className={styles.footerGrid}>
-          {/* Column 1: Brand & About */}
+          {/* Column 1: Brand & Contact */}
           <div className={styles.colBrand}>
             <Link href="/" style={{ textDecoration: 'none' }}>
               <img
@@ -49,29 +49,20 @@ export function Footer() {
                 privacy and rapid execution.
               </p>
             </div>
-            <div className={styles.contactButtonsGroup}>
+
+            <div className={styles.emailContainer}>
               <a
-                href="mailto:muhammadammarfakhar@gmail.com?subject=Inquiry%20from%20FreeFileTools"
+                href="mailto:info@freefiletools.site"
                 className={styles.emailButton}
-                aria-label="Email Us Directly"
+                aria-label="Email FreeFileTools Support"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
-                <span>Email Us</span>
+                <span>info@freefiletools.site</span>
               </a>
-
-              <a
-                href="https://wa.me/923302079066?text=Hi%20FreeFileTools%20Team%2C%20I%20have%20an%20inquiry."
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.whatsappButton}
-                aria-label="Chat with Us on WhatsApp"
-              >
-                <IconWhatsApp size={18} />
-                <span>WhatsApp</span>
-              </a>
+              <span className={styles.emailSubtext}>Direct email support • We reply promptly</span>
             </div>
           </div>
 
@@ -85,23 +76,23 @@ export function Footer() {
                 </Link>
               </li>
               <li className={styles.linkItem}>
+                <Link href="/tools/image-resizer/">
+                  Image Resizer (Crop & Scale)
+                </Link>
+              </li>
+              <li className={styles.linkItem}>
                 <Link href="/tools/bulk-image-converter/">
                   Bulk Image Converter (WebP, PNG, JPG)
                 </Link>
               </li>
               <li className={styles.linkItem}>
                 <Link href="/tools/png-to-svg/">
-                  PNG to SVG Converter
+                  PNG to SVG Vector
                 </Link>
               </li>
               <li className={styles.linkItem}>
                 <Link href="/tools/svg-to-png/">
                   SVG to PNG Converter
-                </Link>
-              </li>
-              <li className={styles.linkItem}>
-                <Link href="/tools/image-to-pdf/">
-                  Image to PDF Compiler
                 </Link>
               </li>
             </ul>
@@ -152,6 +143,9 @@ export function Footer() {
               <li className={styles.linkItem}>
                 <Link href="/terms-of-service/">Terms of Service</Link>
               </li>
+              <li className={styles.linkItem} style={{ marginTop: '0.5rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+                Contact: <a href="mailto:info@freefiletools.site" style={{ color: 'var(--brand-blue)', fontWeight: 600 }}>info@freefiletools.site</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -160,6 +154,9 @@ export function Footer() {
         <div className={styles.bottomBar}>
           <div>
             &copy; 2026 FreeFileTools.site. All rights reserved.
+          </div>
+          <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+            Support: <a href="mailto:info@freefiletools.site" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>info@freefiletools.site</a>
           </div>
         </div>
       </div>

@@ -127,10 +127,27 @@ export function Header() {
                         </div>
                         <div className={styles.itemText}>
                           <span className={styles.itemTitle}>Background Remover</span>
-                          <span className={styles.itemSubtitle}>Instant &lt;50ms cutout</span>
+                          <span className={styles.itemSubtitle}>AI &amp; Smart Keyer</span>
                         </div>
                       </div>
                       {isToolActive('image-background-remover') && <IconCheck size={16} />}
+                    </Link>
+
+                    <Link
+                      href="/tools/image-resizer/"
+                      className={`${styles.dropdownItem} ${isToolActive('image-resizer') ? styles.activeItem : ''}`}
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      <div className={styles.itemLeft}>
+                        <div className={styles.itemIconWrap}>
+                          <IconSvgPng size={20} />
+                        </div>
+                        <div className={styles.itemText}>
+                          <span className={styles.itemTitle}>Image Resizer</span>
+                          <span className={styles.itemSubtitle}>High-DPI crop &amp; scale</span>
+                        </div>
+                      </div>
+                      {isToolActive('image-resizer') && <IconCheck size={16} />}
                     </Link>
 
                     <Link
@@ -330,6 +347,13 @@ export function Header() {
               className={isToolActive('image-background-remover') ? styles.mobileActive : ''}
             >
               Image Background Remover
+            </Link>
+            <Link
+              href="/tools/image-resizer/"
+              onClick={() => setMobileOpen(false)}
+              className={isToolActive('image-resizer') ? styles.mobileActive : ''}
+            >
+              Image Resizer (Crop & Scale)
             </Link>
             <Link
               href="/tools/png-to-svg/"
