@@ -6,158 +6,52 @@
   margin-top: 1.5rem;
 }
 
-.topBar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
-}
-
-.fidelityBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 1rem;
-  background-color: var(--brand-green-light);
-  color: var(--brand-green);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  border-radius: var(--radius-full);
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-.controlsGrid {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 1.25rem;
-  margin-bottom: 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.25rem;
-  align-items: center;
-}
-
-.controlGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.controlLabelRow {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.colorPickerWrap {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.sampleSwatch {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-xs);
-  border: 2px solid var(--border-strong);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0;
-}
-
-.eyedropperHint {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.swatchButtons {
-  display: flex;
-  gap: 0.4rem;
-  flex-wrap: wrap;
-}
-
-.swatchBtn {
-  padding: 0.4rem 0.75rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border-radius: var(--radius-xs);
-  border: 1px solid var(--border-subtle);
-  background-color: var(--bg-surface);
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.swatchBtnActive {
-  background-color: var(--brand-blue) !important;
-  color: #ffffff !important;
-  border-color: var(--brand-blue) !important;
-}
-
-.toggleButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.75rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border-radius: var(--radius-xs);
-  border: 1px solid var(--border-subtle);
-  background-color: var(--bg-surface);
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.toggleButtonActive {
-  background-color: var(--brand-blue-light);
-  color: var(--brand-blue);
-  border-color: var(--brand-blue);
-}
-
 .previewWrapper {
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border-subtle);
   background: repeating-conic-gradient(#e5e7eb 0% 25%, #ffffff 0% 50%) 50% / 20px 20px;
-  min-height: 380px;
+  min-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: crosshair;
   padding: 1rem;
 }
 
 .previewImg {
   max-width: 100%;
-  max-height: 520px;
+  max-height: 540px;
   object-fit: contain;
   border-radius: var(--radius-xs);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   user-select: none;
 }
 
-.clickHintOverlay {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(17, 24, 39, 0.85);
-  color: #ffffff;
-  padding: 0.4rem 0.9rem;
-  border-radius: var(--radius-full);
-  font-size: 0.78rem;
-  font-weight: 600;
-  pointer-events: none;
+.subtleSliderBar {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  backdrop-filter: blur(4px);
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 450px;
+  margin: 1.25rem auto 0;
+  padding: 0.65rem 1.25rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+}
+
+.sliderLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.sliderInput {
+  flex: 1;
+  accent-color: var(--brand-blue);
+  cursor: pointer;
 }
 
 .actionsBar {
@@ -172,32 +66,32 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.8rem 1.6rem;
+  padding: 0.85rem 1.8rem;
   background: linear-gradient(135deg, #0070f3 0%, #0056b3 100%);
   color: #ffffff;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1rem;
   border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 112, 243, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 112, 243, 0.28);
   transition: all var(--transition-fast);
 }
 
 .downloadButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 112, 243, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 112, 243, 0.38);
 }
 
 .resetButton {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.8rem 1.4rem;
+  padding: 0.85rem 1.4rem;
   background-color: var(--bg-surface);
   color: var(--text-primary);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -208,11 +102,13 @@
   background-color: var(--bg-subtle);
 }
 
-.noticePill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+.privacyNote {
+  text-align: center;
   font-size: 0.82rem;
   color: var(--text-muted);
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
 }
