@@ -42,11 +42,12 @@ export function Footer() {
                 style={{ height: '38px', width: 'auto' }}
               />
             </Link>
+            <h3 style={{ fontSize: '1.15rem', fontWeight: 800, margin: '0.85rem 0 0.5rem', color: 'var(--text-primary)' }}>
+              FreeFileTools
+            </h3>
             <div>
               <p className={styles.brandDesc}>
-                FreeFileTools provides 100% free online file tools: no subscriptions, no paywalls, no watermarks,
-                and unlimited conversions. All operations run client-side inside your browser for total data
-                privacy and rapid execution.
+                FreeFileTools provides 8 free online file tools: <Link href="/tools/merge-pdf/">merge PDF</Link>, <Link href="/tools/image-resizer/">resize images</Link>, <Link href="/tools/bulk-image-converter/">bulk image converter</Link>, <Link href="/tools/png-to-svg/">PNG to SVG</Link>, <Link href="/tools/svg-to-png/">SVG to PNG</Link>, and <Link href="/tools/image-to-pdf/">images to PDF</Link>. No subscriptions. No signups. No watermarks. All file processing runs locally in your browser — your files never leave your device.
               </p>
             </div>
 
@@ -67,7 +68,7 @@ export function Footer() {
 
           {/* Column 2: Image Tools */}
           <div>
-            <div className={styles.colTitle}>Image Tools</div>
+            <h4 className={styles.colTitle}>Image Tools</h4>
             <ul className={styles.linkList}>
               <li className={styles.linkItem}>
                 <Link href="/tools/bulk-image-converter/">
@@ -76,17 +77,17 @@ export function Footer() {
               </li>
               <li className={styles.linkItem}>
                 <Link href="/tools/image-resizer/">
-                  Image Resizer (Crop & Scale)
+                  Image Resizer (Crop &amp; Scale)
                 </Link>
               </li>
               <li className={styles.linkItem}>
                 <Link href="/tools/png-to-svg/">
-                  PNG to SVG Vector
+                  PNG to SVG Vector Converter
                 </Link>
               </li>
               <li className={styles.linkItem}>
                 <Link href="/tools/svg-to-png/">
-                  SVG to PNG Converter
+                  SVG to PNG Renderer
                 </Link>
               </li>
             </ul>
@@ -94,11 +95,11 @@ export function Footer() {
 
           {/* Column 3: Document Tools */}
           <div>
-            <div className={styles.colTitle}>Document Tools</div>
+            <h4 className={styles.colTitle}>Document Tools</h4>
             <ul className={styles.linkList}>
               <li className={styles.linkItem}>
                 <Link href="/tools/image-to-pdf/">
-                  Image to PDF Compiler
+                  Images to PDF Compiler
                 </Link>
               </li>
               <li className={styles.linkItem}>
@@ -107,26 +108,21 @@ export function Footer() {
                 </Link>
               </li>
               <li className={styles.linkItem}>
-                <Link href="/tools/pdf-to-word/">
+                <Link href="/contact/">
                   PDF to Word (Coming Soon)
                 </Link>
               </li>
               <li className={styles.linkItem}>
-                <Link href="/tools/word-to-pdf/">
+                <Link href="/contact/">
                   Word to PDF (Coming Soon)
-                </Link>
-              </li>
-              <li className={styles.linkItem}>
-                <Link href="/tools/">
-                  Browse All File Tools
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Trust & Legal */}
+          {/* Column 4: Company */}
           <div>
-            <div className={styles.colTitle}>Company & Legal</div>
+            <h4 className={styles.colTitle}>Company</h4>
             <ul className={styles.linkList}>
               <li className={styles.linkItem}>
                 <Link href="/about/">About FreeFileTools</Link>
