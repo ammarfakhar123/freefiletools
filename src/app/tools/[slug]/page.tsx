@@ -77,14 +77,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const url = `https://freefiletools.site/tools/${tool.slug}/`;
 
+  const pageTitle = tool.metaTitle || `${tool.title} | 100% Free & Unlimited`;
+  const ogTitle = tool.ogTitle || `${tool.title} | FreeFileTools`;
+
   return {
-    title: `${tool.title} | 100% Free & Unlimited`,
+    title: pageTitle,
     description: tool.metaDescription,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${tool.title} | FreeFileTools`,
+      title: ogTitle,
       description: tool.metaDescription,
       url,
       type: 'website',
@@ -99,11 +102,50 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${tool.title} | FreeFileTools`,
+      title: ogTitle,
       description: tool.metaDescription,
       images: ['/brand/logo-full.png'],
     },
   };
+}
+
+function formatRichText(text: string): React.ReactNode {
+  if (!text) return text;
+  const parts: React.ReactNode[] = [];
+  const regex = /\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    if (match[1] && match[2]) {
+      const linkText = match[1];
+      const url = match[2];
+      const isExternal = url.startsWith('http://') || url.startsWith('https://');
+      parts.push(
+        <a
+          key={`link-${match.index}`}
+          href={url}
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noopener noreferrer' : undefined}
+          style={{ color: 'var(--brand-blue)', textDecoration: 'underline' }}
+        >
+          {linkText}
+        </a>
+      );
+    } else if (match[3]) {
+      parts.push(<strong key={`bold-${match.index}`}>{match[3]}</strong>);
+    }
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts.length === 1 && typeof parts[0] === 'string' ? parts[0] : parts;
 }
 
 export default function ToolPage({ params }: PageProps) {
@@ -219,7 +261,7 @@ export default function ToolPage({ params }: PageProps) {
 
     const flushParagraph = (key: string) => {
       if (currentParagraph.length > 0) {
-        elements.push(<p key={key}>{currentParagraph.join(' ')}</p>);
+        elements.push(<p key={key}>{formatRichText(currentParagraph.join(' '))}</p>);
         currentParagraph = [];
       }
     };
@@ -229,20 +271,24 @@ export default function ToolPage({ params }: PageProps) {
         const header = tableRows[0];
         const bodyRows = tableRows.slice(2);
         elements.push(
-          <div key={key} style={{ overflowX: 'auto' }}>
-            <table>
+          <div key={key} style={{ overflowX: 'auto', margin: '1.75rem 0' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.95rem' }}>
               <thead>
-                <tr>
+                <tr style={{ borderBottom: '2px solid var(--border-strong)', backgroundColor: 'var(--bg-card)' }}>
                   {header.map((col, i) => (
-                    <th key={i}>{col.replace(/\*\*/g, '').trim()}</th>
+                    <th key={i} style={{ padding: '0.85rem 1rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                      {formatRichText(col.trim())}
+                    </th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {bodyRows.map((row, rIdx) => (
-                  <tr key={rIdx}>
+                  <tr key={rIdx} style={{ borderBottom: '1px solid var(--border-subtle)' }}>
                     {row.map((cell, cIdx) => (
-                      <td key={cIdx}>{cell.replace(/\*\*/g, '').trim()}</td>
+                      <td key={cIdx} style={{ padding: '0.85rem 1rem', color: 'var(--text-secondary)' }}>
+                        {formatRichText(cell.trim())}
+                      </td>
                     ))}
                   </tr>
                 ))}
@@ -277,12 +323,15 @@ export default function ToolPage({ params }: PageProps) {
       } else if (trimmed.startsWith('### ')) {
         flushParagraph(`p-before-h3-${index}`);
         elements.push(<h3 key={`h3-${index}`}>{trimmed.replace('### ', '')}</h3>);
-      } else if (trimmed.startsWith('1. ') || trimmed.startsWith('2. ') || trimmed.startsWith('3. ') || trimmed.startsWith('4. ')) {
+      } else if (trimmed.match(/^\d+\.\s/)) {
         flushParagraph(`p-before-num-${index}`);
+        const dotIdx = trimmed.indexOf('.');
+        const num = trimmed.slice(0, dotIdx + 1);
+        const rest = trimmed.slice(dotIdx + 1).trim();
         elements.push(
           <div key={`num-${index}`} style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.75rem' }}>
-            <span style={{ fontWeight: 700, color: 'var(--brand-blue)' }}>{trimmed.slice(0, 2)}</span>
-            <span>{trimmed.slice(3).replace(/\*\*(.*?)\*\*/g, '$1')}</span>
+            <span style={{ fontWeight: 700, color: 'var(--brand-blue)' }}>{num}</span>
+            <span>{formatRichText(rest)}</span>
           </div>
         );
       } else if (trimmed.startsWith('- ')) {
@@ -290,7 +339,7 @@ export default function ToolPage({ params }: PageProps) {
         elements.push(
           <div key={`bullet-${index}`} style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem', paddingLeft: '1rem' }}>
             <span style={{ color: 'var(--brand-blue)' }}>•</span>
-            <span>{trimmed.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '$1')}</span>
+            <span>{formatRichText(trimmed.replace('- ', ''))}</span>
           </div>
         );
       } else if (trimmed.length > 0) {
@@ -382,6 +431,26 @@ export default function ToolPage({ params }: PageProps) {
 
           {/* Working tool UI immediately usable */}
           <div>{renderActiveTool()}</div>
+
+          {/* Hero Section First 150 Words (directly under tool) */}
+          {tool.heroBody && (
+            <div
+              style={{
+                maxWidth: '860px',
+                margin: '2rem auto 0',
+                padding: '1.5rem 1.75rem',
+                backgroundColor: 'var(--bg-surface)',
+                border: '1px solid var(--border-subtle)',
+                borderRadius: 'var(--radius-md)',
+                lineHeight: 1.75,
+                color: 'var(--text-secondary)',
+                fontSize: '1rem',
+                textAlign: 'left',
+              }}
+            >
+              <p style={{ margin: 0 }}>{formatRichText(tool.heroBody)}</p>
+            </div>
+          )}
         </div>
       </section>
 
@@ -407,7 +476,7 @@ export default function ToolPage({ params }: PageProps) {
           <div style={{ maxWidth: '640px' }}>
             <div className={styles.toolTag}>Step-by-Step Instructions</div>
             <h2 style={{ fontSize: '1.85rem', fontWeight: 800, marginTop: 0 }}>
-              How to Use {tool.shortTitle} Online
+              {tool.howToTitle || `How to Use ${tool.shortTitle} Online`}
             </h2>
             <p style={{ color: 'var(--text-secondary)' }}>
               Follow these simple steps to process your files in seconds.
@@ -432,7 +501,7 @@ export default function ToolPage({ params }: PageProps) {
           <div style={{ maxWidth: '640px' }}>
             <div className={styles.toolTag}>Core Capabilities</div>
             <h2 style={{ fontSize: '1.85rem', fontWeight: 800, marginTop: 0 }}>
-              Key Features and Benefits
+              {tool.featuresTitle || 'Key Features and Benefits'}
             </h2>
             <p style={{ color: 'var(--text-secondary)' }}>
               Engineered for reliability, precision, and complete privacy.
@@ -464,7 +533,7 @@ export default function ToolPage({ params }: PageProps) {
           <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto' }}>
             <div className={styles.toolTag}>Help & Answers</div>
             <h2 style={{ fontSize: '1.85rem', fontWeight: 800, marginTop: 0 }}>
-              Frequently Asked Questions About {tool.shortTitle}
+              {tool.faqTitle || `Frequently Asked Questions About ${tool.shortTitle}`}
             </h2>
             <p style={{ color: 'var(--text-secondary)' }}>
               Answers to common technical, privacy, and formatting questions.
@@ -475,7 +544,7 @@ export default function ToolPage({ params }: PageProps) {
             {tool.faq.map((item, index) => (
               <div key={index} className={styles.faqCard}>
                 <h3 className={styles.faqQuestion}>{item.question}</h3>
-                <p className={styles.faqAnswer}>{item.answer}</p>
+                <p className={styles.faqAnswer}>{formatRichText(item.answer)}</p>
               </div>
             ))}
           </div>
@@ -488,7 +557,7 @@ export default function ToolPage({ params }: PageProps) {
           <div style={{ maxWidth: '640px' }}>
             <div className={styles.toolTag}>Explore More</div>
             <h2 style={{ fontSize: '1.85rem', fontWeight: 800, marginTop: 0 }}>
-              Related Free File Utilities
+              {tool.relatedToolsTitle || 'Related Free File Utilities'}
             </h2>
             <p style={{ color: 'var(--text-secondary)' }}>
               Complementary tools to streamline your document and image workflows.
@@ -567,13 +636,12 @@ export default function ToolPage({ params }: PageProps) {
                   color: 'var(--text-primary)',
                 }}
               >
-                Your Files Never Leave Your Device
+                {tool.privacyTitle || 'Your Files Never Leave Your Device'}
               </h3>
               <p className={styles.reassuranceText}>
-                We prioritize your privacy above all else. FreeFileTools processes files entirely inside your web
-                browser memory using WebAssembly and client-side scripts. Your photos, documents, and vectors are
-                never uploaded to our servers, never stored in cloud databases, and never inspected by third parties.
-                When you close this tab, all session memory is completely cleared.
+                {tool.privacyBody
+                  ? formatRichText(tool.privacyBody)
+                  : 'We prioritize your privacy above all else. FreeFileTools processes files entirely inside your web browser memory using WebAssembly and client-side scripts. Your photos, documents, and vectors are never uploaded to our servers, never stored in cloud databases, and never inspected by third parties. When you close this tab, all session memory is completely cleared.'}
               </p>
             </div>
           </div>

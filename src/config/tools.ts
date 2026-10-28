@@ -31,6 +31,15 @@ export interface ToolDefinition {
   howToSteps: HowToStep[];
   features: ToolFeature[];
   faq: ToolFaqItem[];
+  metaTitle?: string;
+  ogTitle?: string;
+  heroBody?: string;
+  howToTitle?: string;
+  featuresTitle?: string;
+  faqTitle?: string;
+  privacyTitle?: string;
+  privacyBody?: string;
+  relatedToolsTitle?: string;
 }
 
 export const TOOLS: ToolDefinition[] = [
@@ -134,83 +143,134 @@ export const TOOLS: ToolDefinition[] = [
   {
     id: 'image-resizer',
     slug: 'image-resizer',
-    title: 'Free Image Resizer Online (Crop, Scale & Dimensions)',
+    title: 'Free Image Resizer Online — Resize, Crop and Scale Photos Without Losing Quality',
     shortTitle: 'Image Resizer',
     category: 'image',
-    metaDescription: 'Free image resizer online. Resize, scale, and crop photos by exact pixel dimensions, percentage, or social media presets with zero quality loss.',
-    heroSubheading: 'Quickly resize photos and graphics in your browser with multi-step bicubic resampling. 100% free, keep aspect ratio, social presets, zero watermarks.',
-    primaryKeyword: 'free image resizer online',
+    metaTitle: 'Free Image Resizer Online — Crop, Scale & Resize Photos Without Quality Loss | FreeFileTools',
+    ogTitle: 'Free Image Resizer — Resize, Crop & Scale Photos Online | FreeFileTools',
+    metaDescription: 'Free online image resizer. Resize photos by exact pixel dimensions, percentage, or social media presets. No watermark, no upload, no signup. Works for Instagram, YouTube thumbnails, PPSC photos and more.',
+    heroSubheading: 'Resize any photo to exact pixel dimensions, a percentage scale, or a one-click social media preset. Multi-step bicubic resampling keeps images sharp. 100% free, no watermark, no upload.',
+    heroBody: 'Whether you need to resize image for a YouTube thumbnail, prepare a PPSC passport photo, scale a PNG for Instagram, or reduce an image for a WhatsApp DP, this free image size reducer handles everything directly in your browser — no software, no account, zero watermarks. FreeFileTools image resizer gives you three ways to resize: exact pixel dimensions, a custom percentage scale, or one-click social and standard presets. Every resize uses multi-step bicubic resampling so your photos stay crisp — no jagged edges, no blurriness, no artifacts. Upload a PNG, JPG, or WebP file and download your resized photo in seconds.',
+    primaryKeyword: 'free image size reducer online',
     secondaryKeywords: [
+      'image resizer ppsc',
+      'resize image ppsc',
+      'resize image for youtube thumbnail',
+      'canvas resize image',
+      'resize png image',
+      'ppsc resize image',
+      'resize image for whatsapp dp',
+      'resize image for instagram',
+      'how to resize an image in photoshop',
+      'image resizer online',
       'resize image online free',
-      'scale image without losing quality',
-      'photo dimensions changer',
-      'resize image to 1080x1080',
-      'passport photo resizer online',
-      'crop and resize image free',
-      'client side photo resizer'
+      'how to resize an image'
     ],
     badgeText: 'Multi-Step Bicubic Resampler',
     acceptedFileTypes: ['image/png', 'image/jpeg', 'image/webp', 'image/bmp'],
     acceptedExtensionsDescription: 'PNG, JPG, JPEG, WebP, BMP up to 50MB',
-    relatedSlugs: ['bulk-image-converter', 'svg-to-png', 'png-to-svg'],
+    relatedSlugs: ['bulk-image-converter', 'png-to-svg', 'svg-to-png', 'image-to-pdf', 'merge-pdf'],
+    howToTitle: 'How to Use the Image Resizer Online',
     howToSteps: [
       {
         step: 1,
         title: 'Select or drop your photo',
-        text: 'Choose any image file from your device to load into the resizer.'
+        text: 'Upload any PNG, JPG, or WebP image from your device. Drag and drop onto the tool or click to browse your files.'
       },
       {
         step: 2,
-        title: 'Choose dimensions or preset',
-        text: 'Type target width and height in pixels, pick a percentage scale, or choose from social media presets.'
+        title: 'Choose your resize method',
+        text: 'Pick Exact Dimensions (px) to set a custom width and height, Percentage Scale to scale up or down by a custom %, or Social Presets for one-click sizes.'
       },
       {
         step: 3,
         title: 'Set fit behavior and format',
-        text: 'Choose exact scale, contain with padding, or center crop, and select your preferred output format.'
+        text: 'Choose Exact (stretch to fit), Contain (fit with padding), or Cover (center crop to fill). Select your output format: JPG, PNG, or WebP.'
       },
       {
         step: 4,
-        title: 'Download crisp resized image',
-        text: 'Click Download to instantly save your resized image rendered at maximum bicubic sharpness.'
+        title: 'Adjust export quality if needed',
+        text: 'Drag the quality slider (default 92%) to balance sharpness against file size. The estimated output file size updates live.'
+      },
+      {
+        step: 5,
+        title: 'Download your resized image',
+        text: 'Click Download to instantly save the resized photo rendered at maximum bicubic sharpness. No upload to any server, ever.'
       }
     ],
+    featuresTitle: 'Key Features and Benefits of FreeFileTools Image Resizer',
     features: [
       {
-        title: 'Stepped High-DPI Resampling',
-        text: 'Uses iterative stepped downsampling so resizing large images never causes jagged lines, aliasing, or broken pixels.'
+        title: 'Multi-Step Bicubic Resampling',
+        text: 'Standard browser canvas algorithms drop pixels when downscaling large photos, causing jagged lines and moire artifacts. FreeFileTools uses iterative stepped downsampling in 50% intervals with high-quality smoothing at each step. This canvas resize image technique retains fine text, edge contrast, and micro-details — even on extreme downscales from 4K to thumbnail size.'
       },
       {
         title: 'Aspect Ratio Lock',
-        text: 'Toggle the proportional lock so changing width automatically recalculates height, preventing image distortion.'
+        text: 'Enable the proportional lock and changing width automatically recalculates height. No manual maths, no accidental stretching or squishing. Works across all resize modes.'
       },
       {
-        title: 'One-Click Social Media Presets',
-        text: 'Quickly scale for Instagram, YouTube thumbnails, Twitter/X banners, Facebook covers, or Passport photo standards.'
+        title: 'Three Resize Modes',
+        text: 'Exact Dimensions — enter any pixel width and height. Percentage Scale — resize to 25%, 50%, 75%, 150%, or any custom percentage. Social Presets — one-click standard sizes for every major platform.'
+      },
+      {
+        title: 'Three Fit Behaviors',
+        text: 'Exact: scales the image directly to the specified dimensions. Contain: fits the entire image within the box with clean transparent or white padding — ideal for product photos. Cover: center-crops the image symmetrically to fill exact dimensions without distortion.'
+      },
+      {
+        title: 'PPSC and Government Form Photos',
+        text: 'Resize any photo to the exact pixel dimensions required for PPSC, FPSC, NTS, CSS, and other Pakistani government exam and job application portals. Use the Passport/ID preset (600x600px) or enter custom dimensions. The image resizer ppsc workflow takes under 10 seconds.'
+      },
+      {
+        title: 'PNG, JPG and WebP Support',
+        text: 'Resize PNG image files while preserving transparency. Convert output to JPG for smallest file size, WebP for web delivery, or keep PNG for lossless quality. Format selection is on the same screen.'
+      },
+      {
+        title: 'Export Quality Control',
+        text: 'Drag the quality slider from 1% to 100%. The live preview shows estimated output file size so you can balance sharpness against storage or upload limits before downloading.'
       },
       {
         title: '100% Client-Side Privacy',
-        text: 'Your photos are processed entirely inside browser Canvas memory. Nothing is ever uploaded to external servers.'
+        text: 'Your photos never leave your device. All processing happens inside browser Canvas memory — no cloud upload, no server storage, no third-party access. Close the tab and everything is cleared.'
       }
     ],
+    faqTitle: 'Frequently Asked Questions About Image Resizing',
     faq: [
       {
         question: 'Will resizing reduce the sharpness of my image?',
-        answer: 'No. FreeFileTools uses stepped downsampling algorithms with high-quality bicubic smoothing to preserve sharp text, edges, and details.'
+        answer: "No. FreeFileTools uses multi-step bicubic resampling with iterative smoothing at each pass. This preserves sharp text, edges, and fine details that single-pass resizers typically destroy. The result is noticeably crisper than most free online image resizers (see [Google's web.dev optimization guide](https://web.dev/fast/#optimize-your-images))."
       },
       {
-        question: 'Can I resize photos for Instagram or YouTube?',
-        answer: 'Yes. Use the Social & Standard Presets tab to select Instagram 1080x1080, YouTube 1280x720, or other standard sizes with one click.'
+        question: 'Can I resize image for Instagram or YouTube?',
+        answer: 'Yes. Use the Social Presets tab. Select Instagram Square (1080x1080), Instagram Story (1080x1920), or YouTube Thumbnail (1280x720) with one click. Use Cover mode to crop and fill the frame exactly.'
       },
       {
-        question: 'Is there a limit on image file size or quantity?',
-        answer: 'You can resize photos up to 50MB each, completely free without daily limits, subscriptions, or watermarks.'
+        question: 'How do I resize image for PPSC or government forms?',
+        answer: 'Select the Passport/ID Photo preset (600x600px) or enter the exact dimensions required by the portal. Most PPSC, FPSC, NTS, and CSS application forms specify pixel dimensions rather than file size. Export as JPG for the most compact output. The ppsc resize image process takes under 10 seconds.'
+      },
+      {
+        question: 'Can I resize PNG image files?',
+        answer: 'Yes. Upload any PNG and the resizer handles it fully. Select PNG as the output format to preserve transparency. Select JPG if you want a smaller file size. WebP is available for web-optimized output.'
+      },
+      {
+        question: 'How do I resize image for WhatsApp DP?',
+        answer: 'WhatsApp profile pictures display at 500x500px. Enter 500 in both width and height fields with Cover fit selected to get a perfectly square crop. Download as JPG for the smallest file.'
+      },
+      {
+        question: 'Is there a file size or quantity limit?',
+        answer: 'You can process photos up to 50MB each, completely free. No daily limits, no subscriptions, no watermarks on output. Resize image online free as many times as you need.'
+      },
+      {
+        question: 'How does this compare to resizing in Photoshop?',
+        answer: "Photoshop requires a paid Creative Cloud subscription. FreeFileTools runs entirely in your browser, free, with no installation needed. For standard resizing tasks — social presets, pixel dimensions, percentage scaling — the output quality is comparable to Photoshop's bicubic resampling."
       },
       {
         question: 'Does FreeFileTools store copies of my photos?',
-        answer: 'Never. Resizing happens strictly in your local device browser memory and is discarded the moment you close the tab.'
+        answer: 'Never. Resizing runs entirely inside your local browser Canvas memory using client-side JavaScript. Nothing is uploaded to any server. When you close the tab, all session data is permanently cleared.'
       }
-    ]
+    ],
+    privacyTitle: 'Your Files Never Leave Your Device',
+    privacyBody: "FreeFileTools prioritizes privacy above all else. Unlike cloud-based converters that upload your photographs to remote servers for processing, this image resizer runs all calculations directly inside your browser memory using client-side JavaScript and the Canvas API. Following Google's [image guidelines for web delivery](https://developers.google.com/search/docs/appearance/google-images), your personal photos, ID documents, and business graphics are never transmitted to external servers, never stored in cloud databases, and never inspected by third parties. When you close this tab, all session memory is completely and permanently cleared.",
+    relatedToolsTitle: 'More Free File Tools'
   },
   {
     id: 'bulk-image-converter',
