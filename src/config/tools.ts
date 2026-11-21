@@ -275,223 +275,296 @@ export const TOOLS: ToolDefinition[] = [
   {
     id: 'bulk-image-converter',
     slug: 'bulk-image-converter',
-    title: 'Free Bulk Image Converter to WebP, PNG, JPG Online',
+    title: 'Free Bulk Image Converter Online — WebP, PNG, JPG, AVIF in Seconds',
     shortTitle: 'Bulk Image Converter',
     category: 'image',
-    metaDescription: 'Free bulk image converter online. Convert multiple PNG, JPG, and WebP images in seconds. Download all converted images as a ZIP file. 100% free and private.',
-    heroSubheading: 'Convert multiple images into modern WebP, lossless PNG, or universal JPEG in seconds. 100% free, unlimited batch processing, download all as ZIP.',
-    primaryKeyword: 'free bulk image converter',
+    metaTitle: 'Free Bulk Image Converter Online — Convert to WebP, PNG, JPG in Seconds',
+    ogTitle: 'Free Bulk Image Converter Online — FreeFileTools',
+    metaDescription: 'Convert multiple images to WebP, PNG, or JPG at once — no upload, no signup, no watermark. Batch processing runs entirely in your browser. 100% free and unlimited.',
+    heroSubheading: 'Convert multiple images to WebP, PNG, JPG, or AVIF at once — directly in your browser. Batch processing runs entirely in your browser. 100% free and unlimited.',
+    heroBody: 'FreeFileTools bulk image converter lets you convert multiple images to WebP, PNG, JPG, or AVIF at once — directly in your browser, with no file uploads and no limits. Whether you are optimizing a photo gallery for web speed or switching file formats for work, our browser-based batch processing engine handles dozens of files simultaneously and lets you download converted images as zip in one click. You can also resize your images before batch conversion using the [Image Resizer](/tools/image-resizer/).',
+    primaryKeyword: 'bulk image converter',
     secondaryKeywords: [
-      'convert to webp online',
-      'batch png to webp',
-      'bulk jpg to webp converter',
-      'image format converter free',
-      'download converted images zip',
-      'fast client side image converter'
+      'bulk image converter to jpg',
+      'bulk image converter online free',
+      'bulk image converter to png',
+      'webp bulk image converter',
+      'convert multiple images at once',
+      'batch image format converter',
+      'convert images without uploading',
+      'convert jpg to webp free',
+      'download converted images as zip'
     ],
     badgeText: 'Batch GPU Engine',
     acceptedFileTypes: ['image/png', 'image/jpeg', 'image/webp', 'image/svg+xml'],
-    acceptedExtensionsDescription: 'PNG, JPG, JPEG, WebP, SVG (up to 50 files)',
-    relatedSlugs: ['image-resizer', 'png-to-svg', 'image-to-pdf'],
+    acceptedExtensionsDescription: 'PNG, JPG, JPEG, WebP, SVG, AVIF (up to 50+ files)',
+    relatedSlugs: ['image-resizer', 'png-to-svg', 'svg-to-png', 'image-to-pdf', 'merge-pdf'],
+    howToTitle: 'How to Convert Multiple Images at Once',
     howToSteps: [
       {
         step: 1,
-        title: 'Select multiple images',
-        text: 'Drop multiple photos or graphics into the workspace at once.'
+        title: 'Step 1 — Select or Drop Your Images',
+        text: 'Upload multiple PNG, JPG, WebP, AVIF, SVG, or BMP files. Drag and drop a whole folder or browse files from your computer or phone.'
       },
       {
         step: 2,
-        title: 'Choose target format',
-        text: 'Select WebP for web optimization, PNG for lossless clarity, or JPEG for universal compatibility.'
+        title: 'Step 2 — Choose Target Format (WebP, PNG, JPG, AVIF)',
+        text: 'Select WebP for modern web performance, PNG for transparent graphics, JPG for universal photo compatibility, or AVIF for maximum compression.'
       },
       {
         step: 3,
-        title: 'Fine-tune quality slider',
-        text: 'Adjust compression quality from 50% to 100% with real-time file size previews.'
-      },
-      {
-        step: 4,
-        title: 'Download individual files or ZIP',
-        text: 'Click Download All as ZIP to receive all your converted files in one neat package.'
+        title: 'Step 3 — Adjust Quality and Download as ZIP',
+        text: 'Fine-tune compression with the live quality slider and click Download All as ZIP to receive all your converted files in one package.'
       }
     ],
+    featuresTitle: 'Key Features and Benefits of FreeFileTools Bulk Image Converter',
     features: [
       {
         title: 'Parallel Batch Processing',
-        text: 'Convert dozens of images in parallel in under 1 second using browser Canvas APIs.'
+        text: 'FreeFileTools processes 50+ images simultaneously using parallel browser Canvas APIs with zero batch size limits.'
       },
       {
-        title: 'Download All as ZIP',
-        text: 'Package all converted assets into a single compressed ZIP archive with one click.'
+        title: 'One-Click ZIP Packaging',
+        text: 'Download converted images as zip instantly rather than saving files individually, saving valuable time.'
       },
       {
-        title: 'Next-Gen WebP Support',
-        text: 'Shrink image weights by 30% while retaining high-fidelity visual clarity.'
+        title: 'Broad Format Support',
+        text: 'Batch image format converter supporting PNG, JPG, WebP, AVIF, SVG, BMP, GIF, ICO, and TIFF inputs.'
       },
       {
-        title: 'Strict Local Privacy',
-        text: 'Batch processing runs locally on your computer with zero files sent to remote servers.'
+        title: '100% Client-Side Privacy',
+        text: 'Convert images without uploading anything to remote servers. All processing runs locally in browser memory.'
       }
     ],
+    faqTitle: 'Frequently Asked Questions',
     faq: [
       {
         question: 'How many images can I convert at once?',
-        answer: 'You can upload and convert up to 50+ images at a time. Processing takes place in parallel.'
+        answer: 'FreeFileTools processes 50+ images simultaneously using parallel browser Canvas APIs. There is no batch size limit.'
       },
       {
-        question: 'Why should I convert my images to WebP?',
-        answer: 'WebP provides superior compression over JPEG and PNG, producing files 25% to 35% smaller with crisp quality and full transparency support.'
+        question: 'Can I do a bulk image converter to JPG online for free?',
+        answer: 'Yes. Select JPG/JPEG as your output format, drop your images, and download the converted files. No account needed, no watermarks.'
       },
       {
-        question: 'Can I download all converted images together?',
-        answer: 'Yes. Simply click the Download All as ZIP button to get all files in a single download.'
+        question: 'Does bulk image conversion require an internet connection?',
+        answer: 'Only to load the page. Once loaded, all conversions run locally on your device using HTML5 Canvas — no files are sent to any server.'
       },
       {
-        question: 'Are there any file size or conversion limits?',
-        answer: 'No. FreeFileTools provides unlimited batch conversions with zero daily limits.'
+        question: 'How do I convert multiple images to WebP?',
+        answer: 'Drop all your images into the tool, select WebP as the target format, adjust the quality slider, and click Download All as ZIP.'
+      },
+      {
+        question: 'Is there a free bulk image converter that works on Mac?',
+        answer: 'Yes. FreeFileTools runs in any modern browser on Mac, Windows, Linux, and mobile — no software download or installation required.'
+      },
+      {
+        question: 'What is the difference between WebP, PNG and JPG?',
+        answer: 'WebP gives smaller file sizes (25-35% smaller than JPEG) with full transparency support — best for websites. PNG is lossless, best for logos and screenshots. JPG is universal, best for photographs.'
       }
-    ]
+    ],
+    privacyTitle: 'Your Files Never Leave Your Device',
+    privacyBody: 'We prioritize your privacy above all else. FreeFileTools processes files entirely inside your web browser memory using HTML5 Canvas and Blob APIs. Your photos and graphics are never uploaded to remote servers, never stored in cloud databases, and never inspected by third parties. When you close this tab, all session memory is completely cleared.',
+    relatedToolsTitle: 'More Free File Tools'
   },
   {
     id: 'png-to-svg',
     slug: 'png-to-svg',
-    title: 'Free PNG to SVG Converter Online',
+    title: 'Free PNG to SVG Converter Online — Vectorize Images Without Losing Quality',
     shortTitle: 'PNG to SVG',
     category: 'image',
-    metaDescription: 'Free PNG to SVG vector converter online. Transform raster logos, sketches, and graphics into infinitely scalable SVG paths directly in your browser.',
-    heroSubheading: 'Convert raster PNG and JPG images into scalable vector SVG graphics. 100% free, client-side processing, no watermarks, unlimited conversions.',
-    primaryKeyword: 'free png to svg converter',
+    metaTitle: 'Free PNG to SVG Converter Online — Convert Images to Vector for Free',
+    ogTitle: 'Free PNG to SVG Converter Online — FreeFileTools',
+    metaDescription: 'Convert PNG and JPG images to scalable SVG vector graphics online. Free, browser-based vectorization — no upload, no watermark, no signup. Download clean W3C SVG instantly.',
+    heroSubheading: 'Convert PNG and JPG images to scalable SVG vector graphics online. Free, browser-based vectorization — no upload, no watermark, no signup. Download clean W3C SVG instantly.',
+    heroBody: 'Convert any PNG or JPG image to SVG vector format instantly — the PNG to SVG conversion runs entirely in your browser, with no file uploads and no watermark on your output. Whether you need to vectorize a hand-drawn sketch, clean up a raster logo, or generate sharp cutting paths for Cricut and CNC machines, our free browser-based vectorizer transforms pixel bitmaps into infinitely scalable W3C SVG vector paths in seconds.',
+    primaryKeyword: 'png to svg',
     secondaryKeywords: [
-      'vectorize png free',
-      'png to svg vector',
-      'convert bitmap to svg',
-      'raster to vector online',
-      'logo vectorizer free'
+      'png to svg conversion',
+      'png to svg converter with color',
+      'png to svg bulk converter',
+      'png to svg vector converter free',
+      'png to svg online free',
+      'png to svg transparent',
+      'png to svg no background',
+      'convert raster image to vector',
+      'vectorize image free online',
+      'png to svg for laser cutting',
+      'png to svg for cricut'
     ],
     badgeText: 'Client Vectorizer',
     acceptedFileTypes: ['image/png', 'image/jpeg', 'image/webp'],
     acceptedExtensionsDescription: 'PNG, JPG, JPEG up to 15MB',
-    relatedSlugs: ['svg-to-png', 'bulk-image-converter', 'image-resizer'],
+    relatedSlugs: ['svg-to-png', 'bulk-image-converter', 'image-resizer', 'image-to-pdf', 'merge-pdf'],
+    howToTitle: 'How to Convert PNG to SVG Online — Step by Step',
     howToSteps: [
       {
         step: 1,
-        title: 'Load bitmap graphic',
-        text: 'Select your logo, icon, or sketch from your computer or drag it into the upload container.'
+        title: 'Step 1 — Upload Your PNG or JPG',
+        text: 'Drop your PNG or JPG raster file into the upload area or browse from your device. Clean high-contrast images yield the best vector results.'
       },
       {
         step: 2,
-        title: 'Adjust vectorization settings',
-        text: 'Tune color quantization, contour detail, and curve smoothing to match your art style.'
+        title: 'Step 2 — Adjust Color Count and Path Detail',
+        text: 'Fine-tune color quantization, contour detail, and curve smoothing to capture fine vector curves or simplify into flat graphic shapes.'
       },
       {
         step: 3,
-        title: 'Preview real-time SVG paths',
-        text: 'Inspect the generated vector paths rendered directly in the interactive SVG viewport.'
-      },
-      {
-        step: 4,
-        title: 'Download clean vector file',
-        text: 'Download your lightweight, infinitely scalable .svg file ready for web or laser cutting.'
+        title: 'Step 3 — Preview and Download Your SVG',
+        text: 'Inspect the interactive real-time vector path preview and click Download SVG to save your clean, scalable graphic.'
       }
     ],
+    featuresTitle: 'Key Features and Benefits of FreeFileTools PNG to SVG Converter',
     features: [
       {
         title: 'Infinitely Scalable Vectors',
-        text: 'Scale logos to billboard dimensions or shrink them to 16px favicons without pixelation.'
+        text: 'Scale logos to billboard dimensions or shrink them to 16px favicons without pixelation or blurriness.'
       },
       {
-        title: 'Custom Path Detail Controls',
-        text: 'Fine-tune color steps, path simplification, and curve smoothing for crisp contours.'
+        title: 'Cricut and Laser Cutting Ready',
+        text: 'Generates clean continuous vector paths for CNC routers, vinyl plotters, and laser cutters.'
       },
       {
-        title: 'Clean W3C Code',
-        text: 'Exports standard SVG XML code without proprietary bloat or junk metadata.'
+        title: 'Clean W3C Code Export',
+        text: 'Exports standard SVG code conforming to W3C specifications without proprietary bloat or junk metadata.'
       },
       {
-        title: 'Zero Cloud Transmission',
-        text: 'Tracing algorithms calculate line segments directly inside browser memory.'
+        title: '100% Client-Side Vectorization',
+        text: 'Tracing algorithms calculate line segments directly inside browser memory with zero server uploads.'
       }
     ],
+    faqTitle: 'Frequently Asked Questions',
     faq: [
       {
-        question: 'What is vectorization and how does PNG to SVG work?',
-        answer: 'Vectorization converts pixel grids into mathematical path equations that scale infinitely without blurriness.'
+        question: 'Does the PNG to SVG converter work for logos?',
+        answer: 'Yes. PNG to SVG conversion works best for logos with clean edges and limited colors (2-8 color palette). Set a low color count for simple logos — this produces the cleanest vector paths for use in design software and printing.'
       },
       {
-        question: 'Can I edit the generated SVG in Illustrator, Figma, or Inkscape?',
-        answer: 'Yes. The downloaded SVG file conforms strictly to the W3C SVG specification.'
+        question: 'Can I convert PNG to SVG for use in Cricut or laser cutting machines?',
+        answer: 'Yes. CNC routers, Cricut machines, and laser cutters require vector SVG paths to guide the cutting head. Convert your PNG design to SVG using FreeFileTools and import the downloaded file directly into your cutting software.'
+      },
+      {
+        question: 'Is this a free PNG to SVG vector converter?',
+        answer: 'Yes. FreeFileTools PNG to SVG converter is 100% free — no account, no watermark, no daily limit. The vectorization runs in your browser so no files are uploaded to any server.'
+      },
+      {
+        question: 'How do I get a transparent PNG to SVG output?',
+        answer: 'If your source PNG has a transparent background, the vectorizer will treat the transparent area as negative space. For best results, use a PNG with a clean, solid-contrast background before converting.'
+      },
+      {
+        question: 'Can I do a bulk PNG to SVG conversion?',
+        answer: 'FreeFileTools currently converts one file at a time for PNG to SVG to allow you to preview and fine-tune the vector output per image. For batch raster conversion between PNG, JPG, and WebP, use the [Bulk Image Converter](/tools/bulk-image-converter/).'
+      },
+      {
+        question: 'What software can open the downloaded SVG file?',
+        answer: 'The SVG file from FreeFileTools conforms to the [W3C SVG specification](https://www.w3.org/TR/SVG11/) and opens in Adobe Illustrator, Figma, [Inkscape](https://inkscape.org/), CorelDRAW, and any modern web browser.'
       }
-    ]
+    ],
+    privacyTitle: 'Your Files Never Leave Your Device',
+    privacyBody: 'We prioritize your privacy above all else. FreeFileTools processes vectorization entirely inside your web browser memory. Your logos, sketches, and images are never uploaded to remote servers, never stored in cloud databases, and never inspected by third parties. When you close this tab, all session memory is completely cleared.',
+    relatedToolsTitle: 'More Free File Tools'
   },
   {
     id: 'svg-to-png',
     slug: 'svg-to-png',
-    title: 'Free SVG to PNG Converter Online',
+    title: 'Free SVG to PNG Converter Online — Export Crisp High-Resolution PNG from Any SVG',
     shortTitle: 'SVG to PNG',
     category: 'image',
-    metaDescription: 'Free SVG to PNG converter online. Render vector SVG files into crisp high-resolution PNG images with custom scaling (1x, 2x, 4x) and transparent background.',
-    heroSubheading: 'Render scalable vector SVG graphics into crisp PNG raster images. Custom resolution multipliers, transparent or solid backdrops, 100% free.',
-    primaryKeyword: 'free svg to png converter',
+    metaTitle: 'Free SVG to PNG Converter Online — Export High-Quality PNG from SVG',
+    ogTitle: 'Free SVG to PNG Converter Online — FreeFileTools',
+    metaDescription: 'Convert SVG vector files to high-resolution PNG images online. 1x, 2x, 4x scaling, transparent or solid background. Free, no signup, no watermark, files stay local.',
+    heroSubheading: 'Convert SVG vector files to high-resolution PNG images online. 1x, 2x, 4x scaling, transparent or solid background. Free, no signup, no watermark, files stay local.',
+    heroBody: 'Convert SVG vector files to high-quality PNG images directly in your browser — the SVG to PNG converter renders at 1x, 2x retina, or 4x ultra-HD with no uploads and no watermark. Whether you need transparent PNG badges for websites, ultra-sharp social media graphics, or email-compatible assets from vector designs, our client-side rasterizer creates razor-sharp raster graphics in seconds.',
+    primaryKeyword: 'svg to png',
     secondaryKeywords: [
-      'convert svg to png online',
-      'high resolution svg to png',
-      'svg to transparent png',
-      'vector to raster converter'
+      'svg to png high quality',
+      'svg to png online',
+      'how to convert svg to png',
+      'svg to png converter online',
+      'svg to png transparent background online',
+      'svg to png 4k',
+      'svg to png without background',
+      'svg to png free converter',
+      'svg to png high resolution',
+      'export svg as png for social media',
+      'render vector to raster image free'
     ],
     badgeText: 'Hi-Res Canvas Renderer',
     acceptedFileTypes: ['image/svg+xml'],
     acceptedExtensionsDescription: 'SVG vector files up to 10MB',
-    relatedSlugs: ['png-to-svg', 'bulk-image-converter', 'image-to-pdf'],
+    relatedSlugs: ['png-to-svg', 'bulk-image-converter', 'image-resizer', 'image-to-pdf', 'merge-pdf'],
+    howToTitle: 'How to Convert SVG to PNG Online — 4 Steps',
     howToSteps: [
       {
         step: 1,
-        title: 'Upload SVG vector graphic',
-        text: 'Select your SVG file or drag it directly into the conversion workspace.'
+        title: 'Step 1 — Upload Your SVG File',
+        text: 'Drop your SVG vector file into the converter or click to browse files from your computer or phone.'
       },
       {
         step: 2,
-        title: 'Choose export dimensions and scaling',
-        text: 'Pick standard 1x, crisp 2x retina, ultra 4x print resolution, or specify a custom pixel width.'
+        title: 'Step 2 — Choose Resolution Scale (1x, 2x, 4x or Custom)',
+        text: 'Pick 1x for standard web display, 2x for Retina screens, 4x for Ultra-HD print quality, or enter custom pixel dimensions.'
       },
       {
         step: 3,
-        title: 'Configure background tone',
-        text: 'Retain crisp alpha transparency or apply a solid background fill.'
+        title: 'Step 3 — Set Background (Transparent or Solid Color)',
+        text: 'Keep full alpha transparency for web badges and logos, or select a solid background color fill.'
       },
       {
         step: 4,
-        title: 'Download pixel-perfect PNG',
-        text: 'Click Download to receive your high-density PNG file rendered at maximum rasterization fidelity.'
+        title: 'Step 4 — Download Your High-Resolution PNG',
+        text: 'Click Download PNG to instantly export your crisp raster graphic rendered at high hardware resolution.'
       }
     ],
+    featuresTitle: 'Key Features and Benefits of FreeFileTools SVG to PNG Converter',
     features: [
       {
         title: 'Sub-Pixel Super Sampling',
-        text: 'Render vectors up to 4x ultra high resolution (4K and 8K) for crisp print publications.'
+        text: 'Render vectors up to 4x ultra high resolution (4K and 8K) for razor-sharp print and Retina displays.'
       },
       {
         title: 'Alpha Transparency Preservation',
-        text: 'Retain transparent viewports or set solid backgrounds with zero color bleeding.'
+        text: 'Retain transparent backgrounds or apply custom solid color fills with zero edge bleeding.'
       },
       {
         title: 'Exact Dimension Controls',
-        text: 'Specify exact pixel width while automatically preserving the natural aspect ratio.'
+        text: 'Specify custom pixel dimensions while automatically preserving the natural aspect ratio of your vector.'
       },
       {
-        title: 'Completely Local Execution',
-        text: 'Hardware-accelerated HTML5 Canvas rasterization takes place on your device.'
+        title: '100% Client-Side Privacy',
+        text: 'Hardware-accelerated HTML5 Canvas rasterization executes strictly inside your browser memory.'
       }
     ],
+    faqTitle: 'Frequently Asked Questions',
     faq: [
       {
-        question: 'Why convert SVG to PNG?',
-        answer: 'Many social networks, print shops, and desktop applications require raster PNG images with fixed dimensions.'
+        question: 'How do I convert SVG to PNG for free online?',
+        answer: 'Upload your SVG file to FreeFileTools SVG to PNG converter, choose your resolution scale (1x, 2x, or 4x), set the background option, and click Download. The PNG is generated in your browser — no account or payment required.'
       },
       {
-        question: 'Will my transparent background be preserved?',
-        answer: 'Yes. By default, the output PNG retains full 32-bit alpha transparency.'
+        question: 'How do I get a high-quality SVG to PNG export?',
+        answer: 'Select 2x for Retina/mobile screens or 4x for print and large-format output. FreeFileTools re-renders the vector at the chosen scale against a fresh pixel grid — not just a resize of a 1x image — so lines stay sharp at any resolution.'
+      },
+      {
+        question: 'Can I keep a transparent background when converting SVG to PNG?',
+        answer: 'Yes. By default the output PNG retains full alpha transparency from your SVG. If you need a solid background, select the background color option before downloading.'
+      },
+      {
+        question: 'Why does my SVG to PNG look blurry?',
+        answer: 'This usually means you exported at 1x resolution on a Retina or high-DPI screen. Use 2x or 4x scale for crisp edges. Also check that your SVG has a valid viewBox attribute — missing viewBox can cause unexpected canvas sizing.'
+      },
+      {
+        question: 'Can I convert SVG to PNG for use on Instagram or Twitter?',
+        answer: 'Yes. Social platforms do not accept SVG uploads. Convert your vector logo or graphic to PNG at 2x or 4x in FreeFileTools and upload the resulting file. For profile images, 400x400px minimum is recommended.'
+      },
+      {
+        question: 'Does FreeFileTools support batch SVG to PNG conversion?',
+        answer: 'Currently FreeFileTools converts one SVG at a time to allow full resolution and background control per file. For batch format conversion between raster formats like PNG, JPG and WebP, use the free [Bulk Image Converter](/tools/bulk-image-converter/).'
       }
-    ]
+    ],
+    privacyTitle: 'Your Files Never Leave Your Device',
+    privacyBody: 'We prioritize your privacy above all else. FreeFileTools processes rasterization entirely inside your web browser memory using HTML5 Canvas. Your vector designs and graphics are never uploaded to remote servers, never stored in cloud databases, and never inspected by third parties. When you close this tab, all session memory is completely cleared.',
+    relatedToolsTitle: 'More Free File Tools'
   },
   {
     id: 'pdf-to-word',
