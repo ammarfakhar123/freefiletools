@@ -1,11 +1,10 @@
 import { MetadataRoute } from 'next';
-import { TOOLS } from '@/config/tools';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://freefiletools.site';
+  const baseUrl = 'https://www.freefiletools.site';
   const lastModified = new Date();
 
-  const staticPages: MetadataRoute.Sitemap = [
+  return [
     {
       url: `${baseUrl}/`,
       lastModified,
@@ -13,43 +12,76 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/tools/`,
+      url: `${baseUrl}/tools/image-resizer`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/tools/bulk-image-converter`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/tools/png-to-svg`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/tools/svg-to-png`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/tools/image-to-pdf`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/tools/merge-pdf`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/tools/pdf-to-word`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/about/`,
+      url: `${baseUrl}/tools/word-to-pdf`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/about`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/contact/`,
+      url: `${baseUrl}/contact`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/privacy-policy/`,
+      url: `${baseUrl}/privacy-policy`,
       lastModified,
       changeFrequency: 'yearly',
       priority: 0.4,
     },
     {
-      url: `${baseUrl}/terms-of-service/`,
+      url: `${baseUrl}/terms-of-service`,
       lastModified,
       changeFrequency: 'yearly',
       priority: 0.4,
     },
   ];
-
-  const toolPages: MetadataRoute.Sitemap = TOOLS.filter((tool) => tool.slug !== 'image-background-remover').map((tool) => ({
-    url: `${baseUrl}/tools/${tool.slug}/`,
-    lastModified,
-    changeFrequency: 'weekly',
-    priority: 0.95,
-  }));
-
-  return [...staticPages, ...toolPages];
 }

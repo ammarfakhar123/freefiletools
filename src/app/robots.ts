@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/'],
       },
     ],
-    sitemap: 'https://freefiletools.site/sitemap.xml',
-    host: 'https://freefiletools.site',
+    sitemap: 'https://www.freefiletools.site/sitemap.xml',
+    host: 'https://www.freefiletools.site',
   };
 }
